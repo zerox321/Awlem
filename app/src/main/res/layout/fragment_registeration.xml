@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.semi.awlem.ui.splash.register.RegisterViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:context=".ui.splash.register.RegisterFragment">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/key_lines">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/logoTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/key_linesV"
+                android:gravity="center"
+                android:padding="@dimen/key_linesV"
+                android:text="@string/welcome_in"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/mainFont"
+                android:textStyle="bold"
+                android:transitionName="view"
+                app:drawableTopCompat="@drawable/ic_awlem_logo_small"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/key_linesV"
+                android:text="@string/register"
+                android:textColor="@color/secondary"
+                android:textSize="@dimen/HeaderFont"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/logoTv" />
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameTextInput"
+                style="@style/MyEditTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/key_lines"
+                android:enabled="@{!viewModel.isLoading()}"
+                android:hint="@string/fullName"
+                android:inputType="textPersonName"
+                android:singleLine="true"
+                android:text="@={viewModel.fullName}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailTextInput"
+                style="@style/MyEditTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:enabled="@{!viewModel.isLoading()}"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:singleLine="true"
+                android:text="@={viewModel.email}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nameTextInput" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phoneTextInput"
+                style="@style/MyEditTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:enabled="@{!viewModel.isLoading()}"
+                android:hint="@string/phone"
+                android:inputType="phone"
+                android:singleLine="true"
+                android:text="@={viewModel.phone}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/emailTextInput" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordTextInput"
+                style="@style/MyEditTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:enabled="@{!viewModel.isLoading()}"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:text="@={viewModel.password}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/phoneTextInput" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/confirmPasswordTextInput"
+                style="@style/MyEditTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:enabled="@{!viewModel.isLoading()}"
+                android:hint="@string/confirm_password"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:text="@={viewModel.confirmPassword}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/passwordTextInput" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/save_bt"
+                style="@style/MyButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/button_padding"
+                android:enabled="@{!viewModel.isLoading()}"
+                android:onClick="@{(v)->viewModel.loginClick(v,phoneTextInput,passwordTextInput)}"
+                android:text="@string/register"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/confirmPasswordTextInput" />
+
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                style="@style/Widget.AppCompat.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|start"
+                android:scaleX="0.6"
+                android:scaleY="0.6"
+                android:theme="@style/CircularProgress"
+                android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.INVISIBLE}"
+                app:layout_constraintBottom_toBottomOf="@+id/save_bt"
+                app:layout_constraintEnd_toEndOf="@+id/save_bt"
+                app:layout_constraintHorizontal_bias="0.3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/save_bt"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/restaurant_Tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/key_lines"
+                android:background="?attr/selectableItemBackground"
+                android:onClick="@{viewModel::onBack}"
+                android:padding="@dimen/key_linesV"
+                android:text="@string/have_account"
+                android:textSize="@dimen/mainFont"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/save_bt" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

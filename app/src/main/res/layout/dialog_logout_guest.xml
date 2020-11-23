@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.cardview.widget.CardView
+        style="@style/card_view_padding_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/titleTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/key_lines"
+                android:layout_marginBottom="@dimen/button_padding"
+                android:drawablePadding="@dimen/key_linesV"
+                android:gravity="center"
+                android:padding="@dimen/key_lines"
+                android:text="@string/do_you_want_logout"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/mainFont"
+                android:textStyle="bold"
+                app:drawableTopCompat="@drawable/ic_guest_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/logoutBt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/button_padding"
+                android:background="@color/primary"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:padding="@dimen/key_lines"
+                android:text="@string/menu_logout"
+                android:textColor="@color/white"
+                android:textSize="@dimen/mainFont"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titleTv" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

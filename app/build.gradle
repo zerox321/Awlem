@@ -1,0 +1,143 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-android-extensions'
+    id 'dagger.hilt.android.plugin'
+
+}
+apply from: '../dependencies.gradle'
+
+android {
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.semi.awlem"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.compileSdk
+        versionCode versions.versionCode
+        versionName versions.versionName
+        vectorDrawables.useSupportLibrary = true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        androidTest.java.srcDirs += "$rootDir/test-common/java"
+        test.java.srcDirs += "$rootDir/test-common/java"
+    }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    androidExtensions { experimental = true }
+    buildFeatures {
+
+        dataBinding = true
+
+        // for view binding:
+        viewBinding = true
+    }
+
+}
+
+dependencies {
+    // module dependencies
+    implementation project(":entity")
+    implementation project(":network")
+
+    // dagger
+    implementation 'com.google.dagger:hilt-android:2.29.1-alpha'
+    implementation 'com.google.dagger:hilt-android-testing:2.29.1-alpha'
+    implementation 'androidx.hilt:hilt-common:1.0.0-alpha02'
+    implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    kapt 'com.google.dagger:hilt-android-compiler:2.29.1-alpha'
+    kapt 'androidx.hilt:hilt-compiler:1.0.0-alpha02'
+    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.29.1-alpha'
+    kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.29.1-alpha'
+
+
+    api 'androidx.constraintlayout:constraintlayout:2.0.4'
+    api 'com.google.android.material:material:1.2.1'
+    api 'androidx.vectordrawable:vectordrawable:1.1.0'
+    api 'androidx.legacy:legacy-support-v4:1.0.0'
+    api 'androidx.appcompat:appcompat:1.2.0'
+
+    api 'androidx.navigation:navigation-fragment-ktx:2.3.1'
+    api 'androidx.navigation:navigation-ui-ktx:2.3.1'
+
+
+    api 'androidx.recyclerview:recyclerview:1.1.0'
+
+    api 'com.google.android.gms:play-services-maps:17.0.0'
+    api 'com.google.android.gms:play-services-places:17.0.0'
+    api 'com.google.android.libraries.places:places:2.4.0'
+
+
+    // debugging
+    api "com.jakewharton.timber:timber:$versions.timberVersion"
+
+    // architecture components
+    api "androidx.lifecycle:lifecycle-extensions:$versions.lifecycleVersion"
+    api "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycleVersion"
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycleVersion"
+
+    testImplementation "androidx.arch.core:core-testing:$versions.archCompomentVersion"
+
+
+    // coroutines
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutinesVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutinesVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$versions.coroutinesVersion"
+
+    api 'com.github.ibrahimsn98:SmoothBottomBar:1.7.6'
+
+
+    api 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    api 'jp.wasabeef:glide-transformations:4.1.0'
+
+    api 'com.chaos.view:pinview:1.4.4'
+
+    api 'com.karumi:dexter:6.2.1'
+
+    api 'com.github.florent37:expansionpanel:1.2.2'
+
+
+    api 'com.github.dhaval2404:imagepicker:1.6'
+    api 'com.github.florent37:inline-activity-result-kotlin:1.0.1'
+
+    api 'androidx.work:work-runtime-ktx:2.4.0'
+
+    api 'me.relex:circleindicator:2.1.4@aar'
+
+    api 'androidx.viewpager2:viewpager2:1.1.0-alpha01'
+
+    api 'com.github.chrisbanes:PhotoView:2.3.0'
+
+
+
+    api 'com.andrognito.flashbar:flashbar:1.0.3'
+
+    api 'de.hdodenhof:circleimageview:3.1.0'
+
+
+
+}
+apply from: '../spotless.gradle'

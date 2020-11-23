@@ -1,0 +1,17 @@
+<resources>
+    <dimen name="key_lines">16dp</dimen>
+
+    <dimen name="button_padding">20dp</dimen>
+    <dimen name="key_linesVI">4dp</dimen>
+    <dimen name="key_linesV">7dp</dimen>
+
+    <dimen name="HeaderFont">20sp</dimen>
+    <dimen name="mainFont">16sp</dimen>
+    <dimen name="secondFont">13sp</dimen>
+    <dimen name="thirdFont">10sp</dimen>
+    <dimen name="fourthFont">8sp</dimen>
+
+    <dimen name="profile">70dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+</resources>
