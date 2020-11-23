@@ -6,6 +6,7 @@
     <string name="camera">الكاميرا</string>
     <string name="login">تسجيل الدخول</string>
     <string name="register">انشاء حساب</string>
+    <string name="confirm">تأكيد</string>
     <string name="guestLogin">يرجي تسجيل الدخول للاستمرار ..</string>
     <string name="do_you_want_logout">هل تريد تسجيل الخروج ؟</string>
     <string name="menu_logout">تسجيل الخروج</string>
@@ -15,6 +16,7 @@
     <string name="forgetPassword">نسيت كلمة المرور ؟</string>
     <string name="welcome_in">مرحبا بكم في تطبيق أولم</string>
     <string name="phoneReq">يرجي أدخال رقم الهاتف</string>
+    <string name="resend">إعادة ارسال</string>
     <string name="PasswordReq">"يرجي أدخال كلمة المرور "</string>
     <string name="restaurant_login">
 <font fgcolor="#4a4a48">هل انت مطعم / مقهي ؟ </font>
@@ -31,4 +33,11 @@
 </string>
     <string name="fullName">الاسم بالكامل</string>
     <string name="email">البريد الالكتروني</string>
+    <string name="activate">تفعيل الحساب </string>
+    <string name="please_activate">برجاء ادخال كود التفعيل</string>
+    <string name="title_activity_home">MainActivity</string>
+    <string name="title_home">الرئيسية</string>
+    <string name="title_dashboard">اطلب</string>
+    <string name="title_notifications">العروض</string>
+    <string name="title_more">القائمة</string>
 </resources>

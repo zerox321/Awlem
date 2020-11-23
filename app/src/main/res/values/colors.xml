@@ -5,6 +5,7 @@
     <color name="secondary">#4a4a48</color>
 
     <color name="black">#FF000000</color>
+    <color name="grey">#727272</color>
     <color name="white">#FFFFFFFF</color>
     <color name="colorPrimaryRipple">#40F05F40</color>
 

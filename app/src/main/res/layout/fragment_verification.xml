@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.semi.awlem.ui.splash.verification.VerificationViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/key_lines"
+        tools:context=".ui.splash.verification.VerificationFragment">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/backTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/key_linesV"
+            android:onClick="@{viewModel::onBack}"
+            android:padding="@dimen/key_linesV"
+            android:text="@string/activate"
+            android:textColor="@color/secondary"
+            android:textSize="@dimen/mainFont"
+            android:textStyle="bold"
+            app:drawableStartCompat="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/contentTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/key_lines"
+            android:padding="@dimen/key_linesV"
+            android:text="@string/please_activate"
+            android:textColor="@color/primary"
+            android:textSize="@dimen/mainFont"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/backTv" />
+
+        <com.chaos.view.PinView
+            android:id="@+id/firstPinView"
+            style="@style/PinWidget.PinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/button_padding"
+            android:cursorVisible="true"
+            android:inputType="number"
+            android:itemBackground="@color/white"
+            android:padding="@dimen/key_linesV"
+            android:state_selected="true"
+            android:textColor="@color/primary"
+            android:textSize="@dimen/HeaderFont"
+            android:textStyle="bold"
+            android:visibility="@{viewModel.isLoading()? View.INVISIBLE:View.VISIBLE}"
+            app:cursorColor="@color/primary"
+            app:cursorWidth="2dp"
+            app:hideLineWhenFilled="false"
+            app:itemCount="4"
+            app:itemRadius="4dp"
+            app:itemSpacing="@dimen/key_lines"
+            app:itemWidth="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contentTv"
+            app:lineColor="@drawable/indicator_color"
+            app:lineWidth="2dp"
+            app:viewType="rectangle" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/save_bt"
+            style="@style/MyButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/button_padding"
+            android:enabled="@{!viewModel.isLoading()}"
+            android:text="@string/confirm"
+            app:layout_constraintEnd_toEndOf="@+id/firstPinView"
+            app:layout_constraintStart_toStartOf="@+id/firstPinView"
+            app:layout_constraintTop_toBottomOf="@+id/firstPinView" />
+
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|start"
+            android:scaleX="0.6"
+            android:scaleY="0.6"
+            android:theme="@style/CircularProgress"
+            android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toBottomOf="@+id/save_bt"
+            app:layout_constraintEnd_toEndOf="@+id/save_bt"
+            app:layout_constraintHorizontal_bias="0.3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/save_bt"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/resendTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/key_lines"
+            android:background="?attr/selectableItemBackground"
+            android:onClick="@{viewModel::onResendClick}"
+            android:padding="@dimen/key_linesV"
+            android:text="@string/resend"
+            android:textColor="@color/secondary"
+            android:textSize="@dimen/mainFont"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/save_bt" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

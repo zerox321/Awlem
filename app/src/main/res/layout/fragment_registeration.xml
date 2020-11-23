@@ -36,7 +36,6 @@
                 android:textColor="@color/primary"
                 android:textSize="@dimen/mainFont"
                 android:textStyle="bold"
-                android:transitionName="view"
                 app:drawableTopCompat="@drawable/ic_awlem_logo_small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

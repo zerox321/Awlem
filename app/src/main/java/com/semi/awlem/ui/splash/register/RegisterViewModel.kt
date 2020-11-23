@@ -9,6 +9,8 @@ import com.semi.awlem.R
 import com.semi.awlem.base.BaseViewModel
 import com.semi.awlem.utility.ContextConverter.getActivity
 import com.semi.awlem.utility.KeyboardUtil.hideKeyboard
+import com.semi.awlem.utility.NavigationUtil.findNavigationController
+import com.semi.awlem.utility.NavigationUtil.navigateTo
 import com.semi.awlem.utility.isInputEmpty
 import com.semi.awlem.utility.showErrorSnackBar
 import kotlinx.coroutines.launch
@@ -25,33 +27,37 @@ import kotlinx.coroutines.launch
             phoneTextInput: TextInputEditText,
             passwordTextInput: TextInputEditText
         ) {
-            val activity = v.context.getActivity()
-
-            val phoneValue = phone.value
-            val passwordValue = password.value
-            when {
-                isInputEmpty(phoneValue) -> showErrorSnackBar(
-                    activity = activity,
-                    editText = phoneTextInput,
-                    errorTitleId = R.string.phoneReq,
-                    errorMessageId = R.string.phoneReq,
-                    errorIconId = R.drawable.ic_phone_error
-                )
-                isInputEmpty(passwordValue) -> showErrorSnackBar(
-                    activity = activity,
-                    editText = passwordTextInput,
-                    errorTitleId = R.string.PasswordReq,
-                    errorMessageId = R.string.PasswordReq,
-                    errorIconId = R.drawable.ic_password_error
-                )
-
-                else -> {
-                    v.hideKeyboard()
-                    viewModelScope.launch {
-
-                    }
-                }
-
-            }
+            v.findNavigationController().navigateTo(
+                id = R.id.action_RegisterFragment_to_VerificationFragment,
+            )
+//
+//            val activity = v.context.getActivity()
+//
+//            val phoneValue = phone.value
+//            val passwordValue = password.value
+//            when {
+//                isInputEmpty(phoneValue) -> showErrorSnackBar(
+//                    activity = activity,
+//                    editText = phoneTextInput,
+//                    errorTitleId = R.string.phoneReq,
+//                    errorMessageId = R.string.phoneReq,
+//                    errorIconId = R.drawable.ic_phone_error
+//                )
+//                isInputEmpty(passwordValue) -> showErrorSnackBar(
+//                    activity = activity,
+//                    editText = passwordTextInput,
+//                    errorTitleId = R.string.PasswordReq,
+//                    errorMessageId = R.string.PasswordReq,
+//                    errorIconId = R.drawable.ic_password_error
+//                )
+//
+//                else -> {
+//                    v.hideKeyboard()
+//                    viewModelScope.launch {
+//
+//                    }
+//                }
+//
+//            }
         }
     }
