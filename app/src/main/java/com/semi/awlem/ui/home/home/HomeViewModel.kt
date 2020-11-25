@@ -1,13 +1,10 @@
 package com.semi.awlem.ui.home.home
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.hilt.lifecycle.ViewModelInject
+import com.semi.awlem.base.BaseViewModel
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel @ViewModelInject constructor(private val repository: HomeRepository) :
+    BaseViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
-    }
-    val text: LiveData<String> = _text
+
 }

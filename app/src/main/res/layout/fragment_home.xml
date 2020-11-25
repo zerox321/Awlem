@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -11,11 +12,152 @@
             type="com.semi.awlem.ui.home.home.HomeViewModel" />
     </data>
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.home.home.HomeFragment">
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/nameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/key_lines"
+            android:text="مرحبا جون دو"
+            android:textColor="@color/primary"
+            android:textSize="@dimen/mainFont"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </FrameLayout>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/profileIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/key_lines"
+            app:layout_constraintBottom_toBottomOf="@+id/nameTv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/nameTv"
+            app:srcCompat="@drawable/ic_profile_placeholder" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/statuesTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/key_lines"
+            android:background="@color/primary"
+            android:drawablePadding="@dimen/key_lines"
+            android:padding="@dimen/key_linesV"
+            android:text="تم قبول طلبك باقي 10 دقائق"
+            android:textAlignment="viewStart"
+            android:textColor="@color/white"
+            android:textSize="@dimen/mainFont"
+            android:textStyle="bold"
+            app:drawableStartCompat="@drawable/ic_checked_"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameTv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/key_linesV"
+            android:text="@string/continue_"
+            android:textColor="@color/white"
+            android:textSize="@dimen/secondFont"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/statuesTv"
+            app:layout_constraintEnd_toEndOf="@+id/statuesTv"
+            app:layout_constraintTop_toTopOf="@+id/statuesTv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/searchTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/key_lines"
+            android:background="@drawable/white_rounded_corners"
+            android:drawablePadding="@dimen/key_lines"
+            android:elevation="@dimen/key_linesVI"
+            android:padding="@dimen/key_lines"
+            android:text="@string/search_restaurant"
+            android:textAlignment="viewStart"
+            android:textColor="@color/secondary"
+            android:textSize="@dimen/secondFont"
+            app:drawableEndCompat="@drawable/ic_search_"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/statuesTv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/categoriesTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/key_lines"
+            android:text="@string/categories"
+            android:textColor="@color/secondary"
+            android:textSize="@dimen/secondFont"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchTv" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/categoriesRV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/key_lines"
+            android:layout_marginTop="@dimen/key_lines"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/categoriesTv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/suggestTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/key_lines"
+            android:text="@string/suggest_restaurant"
+            android:textColor="@color/secondary"
+            android:textSize="@dimen/secondFont"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/categoriesRV" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/suggestRV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/key_lines"
+            android:layout_marginTop="@dimen/key_lines"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/suggestTv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/orderNowTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/key_lines"
+            android:text="@string/order_now"
+            android:textColor="@color/secondary"
+            android:textSize="@dimen/secondFont"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/suggestRV" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/orderNowRv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/key_lines"
+            android:layout_marginTop="@dimen/key_lines"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/orderNowTv" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

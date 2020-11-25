@@ -43,4 +43,15 @@
 
     <string name="turn_on_location">تشغيل الموقع</string>
     <string name="please_turn_on_location">يرجى تشغيل الموقع ..</string>
+    <string name="order_now">اطلب الان</string>
+    <string name="suggest_restaurant">مطاعم مقترحة</string>
+    <string name="categories">الاقسام</string>
+    <string name="search_restaurant">ابحث عن مطعم او مقهي</string>
+    <string name="continue_">متابعة</string>
+
+    <string name="reload">يرجي أعاده التحميل</string>
+    <string name="internetError">لا يوجد اتصال إنترنت ..</string>
+    <string name="badInternet">اتصال انترنت سيئ ..</string>
+    <string name="invalidToken">أنتهت جلستك , يرجي أعادة تسجيل الدخول ..</string>
+    <string name="server_error">خطأ في الخادم 500</string>
 </resources>

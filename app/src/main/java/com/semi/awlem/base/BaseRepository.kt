@@ -1,6 +1,6 @@
 package com.semi.awlem.base
 
-class BaseRepository {
+open class BaseRepository {
     internal val TAG = javaClass.simpleName
 
 }
