@@ -54,4 +54,5 @@
     <string name="badInternet">اتصال انترنت سيئ ..</string>
     <string name="invalidToken">أنتهت جلستك , يرجي أعادة تسجيل الدخول ..</string>
     <string name="server_error">خطأ في الخادم 500</string>
+    <string name="addToCart">اضف للسلة</string>
 </resources>

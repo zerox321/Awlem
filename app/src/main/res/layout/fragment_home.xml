@@ -11,11 +11,14 @@
             name="viewModel"
             type="com.semi.awlem.ui.home.home.HomeViewModel" />
     </data>
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.home.home.HomeFragment">
+        android:layout_height="match_parent">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/nameTv"
@@ -106,10 +109,12 @@
             android:layout_marginStart="@dimen/key_lines"
             android:layout_marginTop="@dimen/key_lines"
             android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            app:adapter="@{viewModel.categoryAdapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/categoriesTv" />
+            app:layout_constraintTop_toBottomOf="@+id/categoriesTv"
+            tools:listitem="@layout/category_row_item" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/suggestTv"
@@ -130,10 +135,12 @@
             android:layout_marginStart="@dimen/key_lines"
             android:layout_marginTop="@dimen/key_lines"
             android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            app:adapter="@{viewModel.suggestRestaurantAdapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/suggestTv" />
+            app:layout_constraintTop_toBottomOf="@+id/suggestTv"
+            tools:listitem="@layout/suggest_restaurant_row_item" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/orderNowTv"
@@ -154,10 +161,14 @@
             android:layout_marginStart="@dimen/key_lines"
             android:layout_marginTop="@dimen/key_lines"
             android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            app:adapter="@{viewModel.suggestProductsAdapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/orderNowTv" />
+            app:layout_constraintTop_toBottomOf="@+id/orderNowTv"
+            tools:listitem="@layout/suggest_product_row_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
+
 </layout>

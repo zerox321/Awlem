@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="SuggestedRestaurants"
+            type="com.semi.entity.response.home.SuggestedRestaurantsResponse" />
+
+        <variable
+            name="ClickListener"
+            type="com.semi.awlem.ui.home.home.adapter.SuggestRestaurantAdapter.ClickListener" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        style="@style/card_view_padding_style"
+        android:layout_width="150dp"
+        android:layout_height="150dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iconIv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:bindingPostUrl="@{SuggestedRestaurants.photo}" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:padding="@dimen/key_linesVI"
+            android:shadowColor="@color/grey"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:text="@{SuggestedRestaurants.name}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/secondFont"
+            android:textStyle="bold"
+            tools:text="SuggestedRestaurants" />
+    </androidx.cardview.widget.CardView>
+</layout>

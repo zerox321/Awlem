@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="Category"
+            type="com.semi.entity.response.home.CategoryResponse" />
+
+        <variable
+            name="ClickListener"
+            type="com.semi.awlem.ui.home.home.adapter.CategoryAdapter.ClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iconIv"
+            android:layout_width="@dimen/category_bg"
+            android:layout_height="@dimen/category_bg"
+            android:layout_margin="@dimen/key_linesV"
+            android:background="@drawable/category_rounded_corners"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/category_icon"
+            android:layout_height="@dimen/category_icon"
+            app:bindingPostUrl="@{Category.photo}"
+            app:layout_constraintBottom_toBottomOf="@+id/iconIv"
+            app:layout_constraintEnd_toEndOf="@+id/iconIv"
+            app:layout_constraintStart_toStartOf="@+id/iconIv"
+            app:layout_constraintTop_toTopOf="@+id/iconIv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/key_linesV"
+            android:text="@{Category.name}"
+            android:textColor="@color/secondary"
+            android:textSize="@dimen/mainFont"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iconIv"
+            tools:text="Category" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -61,5 +61,10 @@ dependencies {
     // dagger
     api 'com.google.dagger:hilt-android:2.29.1-alpha'
 
+    // architecture components
+    api "androidx.lifecycle:lifecycle-extensions:$versions.lifecycleVersion"
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycleVersion"
+    api "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycleVersion"
+
 
 }

@@ -13,9 +13,11 @@ data class SuggestedProducts(
     @Json(name = "photo") val photo: String?,
     @Json(name = "ready_in") val readyIn: Int?,
     @Json(name = "ready_to") val readyTo: Int?,
-    @Json(name = "restorant") val restorant: SuggestedProductsRestorant?,
+    @Json(name = "restorant") val product: SuggestedProductsRestorant?,
     @Json(name = "restorant_id") val restorantId: Int?
-)
+) {
+    fun getTime() = "$readyIn - $readyTo دقيقة "
+}
 
 @Keep
 data class SuggestedProductsRestorant(

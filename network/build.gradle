@@ -48,14 +48,12 @@ android {
 
     buildTypes {
         release {
-            buildConfigField 'String', 'baseUrl', '"https://orderpro.sa/api/"'
-            buildConfigField 'String', 'resizedUrl', '"https://orderpro.sa/images/"'
-            buildConfigField 'String', 'socketUrl', '"http://159.89.93.6:3000"'
+            buildConfigField 'String', 'baseUrl', '"http://192.168.1.4/olum/public/api/"'
+            buildConfigField 'String', 'resizedUrl','"http://192.168.1.4/olum/public/api/"'
         }
         debug {
-            buildConfigField 'String', 'baseUrl', '"https://orderpro.sa/api/"'
-            buildConfigField 'String', 'resizedUrl', '"https://orderpro.sa/images/"'
-            buildConfigField 'String', 'socketUrl', '"http://159.89.93.6:3000"'
+            buildConfigField 'String', 'baseUrl', '"http://192.168.1.4/olum/public/api/"'
+            buildConfigField 'String', 'resizedUrl','" http://192.168.1.4/olum/public/"'
         }
     }
 }
@@ -76,9 +74,6 @@ dependencies {
     api 'com.squareup.moshi:moshi-kotlin:1.11.0'
     api 'com.squareup.retrofit2:converter-moshi:2.9.0'
 
-    api('com.github.nkzawa:socket.io-client:0.6.0') {
-        exclude group: 'org.json', module: 'json'
-    }
 
     testImplementation "com.squareup.okhttp3:mockwebserver:$versions.okhttpVersion"
 
