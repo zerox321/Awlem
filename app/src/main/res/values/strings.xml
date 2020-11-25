@@ -37,7 +37,7 @@
     <string name="please_activate">برجاء ادخال كود التفعيل</string>
     <string name="title_activity_home">MainActivity</string>
     <string name="title_home">الرئيسية</string>
-    <string name="title_dashboard">اطلب</string>
-    <string name="title_notifications">العروض</string>
+    <string name="title_order">اطلب</string>
+    <string name="title_offers">العروض</string>
     <string name="title_more">القائمة</string>
 </resources>

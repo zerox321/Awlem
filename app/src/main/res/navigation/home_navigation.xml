@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.semi.awlem.ui.home.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/navigation_order"
+        android:name="com.semi.awlem.ui.home.order.OrdersFragment"
+        android:label="@string/title_order"
+        tools:layout="@layout/fragment_orders" />
+    <fragment
+        android:id="@+id/navigation_offers"
+        android:name="com.semi.awlem.ui.home.offers.OffersFragment"
+        android:label="@string/title_offers"
+        tools:layout="@layout/fragment_offers" />
+    <fragment
+        android:id="@+id/navigation_more"
+        android:name="com.semi.awlem.ui.home.menu.MenuFragment"
+        android:label="@string/title_more"
+        tools:layout="@layout/fragment_menu" />
+
+
+</navigation>

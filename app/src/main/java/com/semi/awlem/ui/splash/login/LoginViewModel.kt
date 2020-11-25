@@ -2,19 +2,12 @@ package com.semi.awlem.ui.splash.login
 
 import android.view.View
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
 import com.google.android.material.textfield.TextInputEditText
 import com.semi.awlem.R
 import com.semi.awlem.base.BaseViewModel
-import com.semi.awlem.ui.home.HomeActivity
-import com.semi.awlem.utility.ActivitiesLauncher.loadActivity
 import com.semi.awlem.utility.ContextConverter.getActivity
-import com.semi.awlem.utility.KeyboardUtil.hideKeyboard
 import com.semi.awlem.utility.NavigationUtil.findNavigationController
 import com.semi.awlem.utility.NavigationUtil.navigateTo
-import com.semi.awlem.utility.isInputEmpty
-import com.semi.awlem.utility.showErrorSnackBar
-import kotlinx.coroutines.launch
 
 
 class LoginViewModel : BaseViewModel() {
@@ -36,8 +29,8 @@ class LoginViewModel : BaseViewModel() {
     ) {
         val activity = v.context.getActivity()
 
-        val homeActivityClass = HomeActivity::class.java as Class<*>
-        activity?.loadActivity(homeActivityClass)
+//        val homeActivityClass = HomeActivity::class.java as Class<*>
+//        activity?.loadActivity(homeActivityClass)
 //        val phoneValue = phone.value
 //        val passwordValue = password.value
 //        when {
