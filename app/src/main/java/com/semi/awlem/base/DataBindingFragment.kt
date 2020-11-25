@@ -12,6 +12,7 @@ import androidx.transition.TransitionInflater
 import com.semi.awlem.utility.KeyboardUtil.hideKeyboard
 
 abstract class DataBindingFragment : Fragment() {
+    internal val TAG = javaClass.simpleName
 
     protected inline fun <reified T : ViewDataBinding> binding(
         inflater: LayoutInflater,

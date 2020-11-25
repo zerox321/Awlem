@@ -1,13 +1,36 @@
 package com.semi.awlem.ui.home
 
 import android.os.Bundle
-import androidx.navigation.ui.*
+import android.view.MenuItem
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.onNavDestinationSelected
+import androidx.navigation.ui.setupWithNavController
 import com.semi.awlem.R
 import com.semi.awlem.base.BaseActivity
 import com.semi.awlem.databinding.ActivityHomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeActivity : BaseActivity() {
     private val binding: ActivityHomeBinding by binding(R.layout.activity_home)
+
+    private val navController: NavController by lazy {
+        findNavController(R.id.nav_host_fragment)
+    }
+    private val appBarConfiguration: AppBarConfiguration by lazy {
+        AppBarConfiguration(
+            setOf(
+                R.id.navigation_home,
+                R.id.navigation_order,
+                R.id.navigation_offers,
+                R.id.navigation_more
+            )
+
+        )
+    }
 
     private fun bind() {
         binding.apply {
@@ -16,50 +39,19 @@ class HomeActivity : BaseActivity() {
         }
     } // fun of bind
 
-//    private val navController: NavController by lazy {
-//        findNavController(R.id.nav_host_fragment)
-//    }
-    private val appBarConfiguration: AppBarConfiguration by lazy {
-        AppBarConfiguration(
-            setOf(
-                R.id.navigation_home
-            )
-
-        )
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
         bind()
-        setupToolBar()
 
+        binding.navView.setOnNavigationItemReselectedListener {}
+        binding.navView.setupWithNavController(navController)
     }
 
-    private fun setupToolBar() {
-//        binding.navView.setupWithNavController(navController)
-//        binding.navView.setOnNavigationItemReselectedListener {}
-
-//        navController.addOnDestinationChangedListener { controller, destination, args ->
-//            if (
-//                destination.id == R.id.navigation_home ||
-//                destination.id == R.id.FollowFragment ||
-//                destination.id == R.id.CartFragment ||
-//                destination.id == R.id.InsuranceFragment ||
-//                destination.id == R.id.MenuFragment
-//            )
-//                showBottomNavigationView(nav_view)
-//            else
-//                hideBottomNavigationView(nav_view)
-
-
-//        }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return item.onNavDestinationSelected(navController)
     }
 
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        return item.onNavDestinationSelected(navController)
-//    }
-//
-//    override fun onSupportNavigateUp(): Boolean {
-//        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
-//    }
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
 }

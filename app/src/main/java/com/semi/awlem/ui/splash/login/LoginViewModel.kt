@@ -5,6 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import com.google.android.material.textfield.TextInputEditText
 import com.semi.awlem.R
 import com.semi.awlem.base.BaseViewModel
+import com.semi.awlem.ui.home.HomeActivity
+import com.semi.awlem.utility.ActivitiesLauncher.loadActivity
 import com.semi.awlem.utility.ContextConverter.getActivity
 import com.semi.awlem.utility.NavigationUtil.findNavigationController
 import com.semi.awlem.utility.NavigationUtil.navigateTo
@@ -29,8 +31,8 @@ class LoginViewModel : BaseViewModel() {
     ) {
         val activity = v.context.getActivity()
 
-//        val homeActivityClass = HomeActivity::class.java as Class<*>
-//        activity?.loadActivity(homeActivityClass)
+        val homeActivityClass = HomeActivity::class.java as Class<*>
+        activity?.loadActivity(homeActivityClass)
 //        val phoneValue = phone.value
 //        val passwordValue = password.value
 //        when {
