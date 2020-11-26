@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.text.Html" />
+
+        <variable
+            name="Faq"
+            type="com.semi.entity.response.menu.FaqResponse" />
+
+        <variable
+            name="ClickListener"
+            type="com.semi.awlem.ui.home.menu.help.FaqsAdapter.ClickListener" />
+    </data>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/key_linesV"
+        android:background="@drawable/grey_rounded_corners"
+        android:onClick="@{(v)->ClickListener.onItemClick(v,Faq)}"
+        android:padding="@dimen/key_linesV"
+        android:text="@{Html.fromHtml(Faq.question)}"
+        android:textAlignment="viewStart"
+        android:textColor="@color/secondary"
+        android:textSize="@dimen/mainFont"
+        app:drawableEndCompat="@drawable/ic_component_45_1" />
+
+
+</layout>

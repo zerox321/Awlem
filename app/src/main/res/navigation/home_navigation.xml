@@ -44,7 +44,23 @@
     <fragment
         android:id="@+id/HelpFragment"
         android:name="com.semi.awlem.ui.home.menu.help.HelpFragment"
-        tools:layout="@layout/help_fragment" />
+        tools:layout="@layout/help_fragment">
+        <action
+            android:id="@+id/action_HelpFragment_to_CommonFragment"
+            app:destination="@id/CommonFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/CommonFragment"
+        android:name="com.semi.awlem.ui.home.menu.help.common.CommonFragment"
+        tools:layout="@layout/common_fragment">
+        <argument
+            android:name="faq"
+            app:argType="com.semi.entity.response.menu.FaqResponse" />
+    </fragment>
     <fragment
         android:id="@+id/StaticPageFragment"
         android:name="com.semi.awlem.ui.home.menu.staticPage.StaticFragment"

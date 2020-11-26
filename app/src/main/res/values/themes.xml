@@ -105,6 +105,7 @@
         <item name="android:paddingTop">@dimen/key_lines</item>
         <item name="android:paddingBottom">@dimen/key_lines</item>
         <item name="android:textSize">@dimen/mainFont</item>
+        <item name="android:textStyle">bold</item>
         <item name="drawableStartCompat">@drawable/ic_back</item>
 
 

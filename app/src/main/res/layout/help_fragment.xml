@@ -12,6 +12,9 @@
             name="viewModel"
             type="com.semi.awlem.ui.home.menu.help.HelpViewModel" />
     </data>
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -31,6 +34,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/appCompatImageView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:scaleType="fitXY"
@@ -39,5 +43,43 @@
             app:layout_constraintTop_toBottomOf="@+id/backTv"
             app:srcCompat="@drawable/help" />
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/commonTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/key_lines"
+            android:text="@string/common"
+            android:textColor="@color/secondary"
+            android:textSize="@dimen/mainFont"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatImageView" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/commonRv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/key_lines"
+            android:orientation="vertical"
+            android:scrollbars="vertical"
+            app:adapter="@{viewModel.faqsAdapter}"
+            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/commonTv"
+            tools:listitem="@layout/faq_row_item" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/ontherQTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/key_lines"
+            android:text="اذا لم تجد ما تبحث عنه ارسل لنا استفسارك"
+            android:textColor="@color/secondary"
+            android:textSize="@dimen/mainFont"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/commonRv" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
 </layout>

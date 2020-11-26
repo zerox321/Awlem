@@ -52,8 +52,8 @@ android {
             buildConfigField 'String', 'resizedUrl','"http://192.168.1.4/olum/public/api/"'
         }
         debug {
-            buildConfigField 'String', 'baseUrl', '"http://192.168.1.8/olum/public/api/"'
-            buildConfigField 'String', 'resizedUrl','" http://192.168.1.8/olum/public/"'
+            buildConfigField 'String', 'baseUrl', '"http://192.168.1.11/olum/public/api/"'
+            buildConfigField 'String', 'resizedUrl','" http://192.168.1.11/olum/public/"'
         }
     }
 }
