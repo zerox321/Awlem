@@ -1,11 +1,14 @@
 package com.semi.awlem.binding
 
+import android.graphics.Color
+import android.webkit.WebView
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import timber.log.Timber
+import java.util.*
 
 
 @BindingAdapter("bindingPostUrl")
@@ -25,3 +28,15 @@ fun bindingPostUrl(imageView: ImageView, path: String?) {
 }
 
 
+@BindingAdapter("loadHtml")
+fun loadHtml(browser: WebView, text: String?) {
+    browser.settings.javaScriptEnabled = true
+    val isArabic = Locale.getDefault().language == "ar"
+    val direction = if (isArabic) "rtl" else "ltr"
+    browser.loadData(
+        "<html dir=\"$direction\" lang=\"\"><body>$text</body></html>",
+        "text/html; charset=utf-8",
+        "UTF-8"
+    )
+    browser.setBackgroundColor(Color.TRANSPARENT)
+}

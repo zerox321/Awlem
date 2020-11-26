@@ -24,7 +24,28 @@
         android:id="@+id/navigation_more"
         android:name="com.semi.awlem.ui.home.menu.MenuFragment"
         android:label="@string/title_more"
-        tools:layout="@layout/fragment_menu" />
+        tools:layout="@layout/fragment_menu">
+        <action
+            android:id="@+id/action_navigation_more_to_StaticPageFragment"
+            app:destination="@id/StaticPageFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
 
-
+    <fragment
+        android:id="@+id/StaticPageFragment"
+        android:name="com.semi.awlem.ui.home.menu.staticPage.StaticFragment"
+        tools:layout="@layout/static_fragment">
+        <argument
+            android:name="pageID"
+            android:defaultValue="0"
+            app:argType="integer" />
+        <argument
+            android:name="pageTitle"
+            android:defaultValue=""
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
 </navigation>

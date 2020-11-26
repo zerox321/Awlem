@@ -1,11 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/brooke_lark_hl_ncigv_ui_4_q_unsplash"
         tools:context=".ui.splash.welcome.WelcomeFragment">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/rounded_edittext">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/logoTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/button_padding"
+                android:drawablePadding="@dimen/key_lines"
+                android:gravity="center"
+                android:padding="@dimen/key_lines"
+                android:text="@string/welcome_in"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/HeaderFont"
+                android:textStyle="bold"
+                app:drawableTopCompat="@drawable/ic_awlem_logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/save_bt"
+                style="@style/MyButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/button_padding"
+                android:text="@string/login"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/logoTv" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/create_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/key_lines"
+                android:background="?attr/selectableItemBackground"
+                android:padding="@dimen/key_linesV"
+                android:text="@string/create_account"
+                android:textSize="@dimen/mainFont"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/save_bt" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/skip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/key_lines"
+                android:background="?attr/selectableItemBackground"
+                android:padding="@dimen/key_linesV"
+                android:text="@string/skip"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/secondFont"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_account" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

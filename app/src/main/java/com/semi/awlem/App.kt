@@ -1,8 +1,8 @@
 package com.semi.awlem
 
 import android.app.Application
+import android.webkit.WebView
 import androidx.appcompat.app.AppCompatDelegate
-import com.semi.awlem.BuildConfig
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
@@ -16,6 +16,7 @@ class App : Application() {
         super.onCreate()
         if (BuildConfig.DEBUG)
             Timber.plant(Timber.DebugTree())
+        WebView(this).destroy()
 
     }
 }

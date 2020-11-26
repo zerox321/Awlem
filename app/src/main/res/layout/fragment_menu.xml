@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -11,11 +12,268 @@
             type="com.semi.awlem.ui.home.menu.MenuViewModel" />
     </data>
 
-    <FrameLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fillViewport="true"
         tools:context=".ui.home.menu.MenuFragment">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    </FrameLayout>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/profileIv"
+                android:layout_width="@dimen/profile"
+                android:layout_height="@dimen/profile"
+                android:layout_marginTop="@dimen/key_lines"
+                android:background="?attr/selectableItemBackground"
+                android:onClick="@{viewModel::onProfileClick}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_profile_placeholder" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/profileTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:onClick="@{viewModel::onProfileClick}"
+                android:padding="@dimen/key_linesV"
+                android:text="تغيير الصورة الشخصية"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/mainFont"
+                app:layout_constraintEnd_toEndOf="@+id/profileIv"
+                app:layout_constraintStart_toStartOf="@+id/profileIv"
+                app:layout_constraintTop_toBottomOf="@+id/profileIv" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/accountTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/key_lines"
+                android:background="@drawable/grey_top_rounded_corners"
+                android:drawablePadding="@dimen/key_lines"
+                android:elevation="2dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:padding="@dimen/key_lines"
+                android:text="@string/profile"
+                android:textAlignment="viewStart"
+                android:textColor="@color/secondary"
+                android:textSize="@dimen/mainFont"
+
+                app:drawableEndCompat="@drawable/ic_component_45_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profileTv" />
+
+            <View
+                android:id="@+id/account_divider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/key_lines"
+                android:layout_marginEnd="@dimen/key_lines"
+                android:background="@drawable/line_divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accountTv" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/ordersTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/key_lines"
+                android:layout_marginEnd="@dimen/key_lines"
+                android:background="@drawable/grey_bottom_rounded_corners"
+                android:drawablePadding="@dimen/key_lines"
+                android:elevation="2dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:padding="@dimen/key_lines"
+                android:text="@string/orders"
+                android:textAlignment="viewStart"
+                android:textColor="@color/secondary"
+                android:textSize="@dimen/mainFont"
+
+                app:drawableEndCompat="@drawable/ic_component_45_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/account_divider" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/helpTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/key_lines"
+                android:background="@drawable/grey_top_rounded_corners"
+                android:drawablePadding="@dimen/key_lines"
+                android:elevation="2dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:padding="@dimen/key_lines"
+                android:text="@string/help"
+                android:textAlignment="viewStart"
+                android:textColor="@color/secondary"
+                android:textSize="@dimen/mainFont"
+
+                app:drawableEndCompat="@drawable/ic_component_45_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ordersTv" />
+
+            <View
+                android:id="@+id/help_divider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/key_lines"
+                android:layout_marginEnd="@dimen/key_lines"
+                android:background="@drawable/line_divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/helpTv" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/privacyTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/key_lines"
+                android:layout_marginEnd="@dimen/key_lines"
+                android:background="@drawable/grey_no_corners"
+                android:drawablePadding="@dimen/key_lines"
+                android:elevation="2dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:onClick='@{(v)->viewModel.staticClick(v,@string/privacy,1)}'
+                android:padding="@dimen/key_lines"
+                android:text="@string/privacy"
+                android:textAlignment="viewStart"
+                android:textColor="@color/secondary"
+                android:textSize="@dimen/mainFont"
+
+                app:drawableEndCompat="@drawable/ic_component_45_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/help_divider" />
+
+            <View
+                android:id="@+id/privacy_divider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/key_lines"
+                android:layout_marginEnd="@dimen/key_lines"
+                android:background="@drawable/line_divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/privacyTv" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/termsTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/key_lines"
+                android:layout_marginEnd="@dimen/key_lines"
+                android:background="@drawable/grey_no_corners"
+                android:drawablePadding="@dimen/key_lines"
+                android:elevation="2dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:onClick='@{(v)->viewModel.staticClick(v,@string/terms,1)}'
+                android:padding="@dimen/key_lines"
+                android:text="@string/terms"
+
+                android:textAlignment="viewStart"
+                android:textColor="@color/secondary"
+                android:textSize="@dimen/mainFont"
+                app:drawableEndCompat="@drawable/ic_component_45_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/privacy_divider" />
+
+            <View
+                android:id="@+id/terms_divider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/key_lines"
+                android:layout_marginEnd="@dimen/key_lines"
+                android:background="@drawable/line_divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/termsTv" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/aboutTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/key_lines"
+                android:layout_marginEnd="@dimen/key_lines"
+                android:background="@drawable/grey_no_corners"
+                android:drawablePadding="@dimen/key_lines"
+                android:elevation="2dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:onClick='@{(v)->viewModel.staticClick(v,@string/about,1)}'
+                android:padding="@dimen/key_lines"
+                android:text="@string/about"
+                android:textAlignment="viewStart"
+                android:textColor="@color/secondary"
+
+                android:textSize="@dimen/mainFont"
+                app:drawableEndCompat="@drawable/ic_component_45_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/terms_divider" />
+
+            <View
+                android:id="@+id/about_divider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/key_lines"
+                android:layout_marginEnd="@dimen/key_lines"
+                android:background="@drawable/line_divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/aboutTv" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/rateTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/key_lines"
+                android:layout_marginEnd="@dimen/key_lines"
+                android:background="@drawable/grey_bottom_rounded_corners"
+                android:drawablePadding="@dimen/key_lines"
+                android:elevation="2dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:onClick='@{(v)->viewModel.staticClick(v,@string/rate,1)}'
+                android:padding="@dimen/key_lines"
+                android:text="@string/rate"
+                android:textAlignment="viewStart"
+                android:textColor="@color/secondary"
+                android:textSize="@dimen/mainFont"
+                app:drawableEndCompat="@drawable/ic_component_45_1"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/about_divider" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/logoutTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/key_lines"
+                android:background="@drawable/grey_rounded_corners"
+                android:drawablePadding="@dimen/key_lines"
+                android:elevation="2dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:padding="@dimen/key_lines"
+                android:text="@string/menu_logout"
+                android:textAlignment="viewStart"
+                android:textColor="@color/primary"
+
+                android:textSize="@dimen/mainFont"
+                app:drawableEndCompat="@drawable/ic_mask_group_42"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rateTv" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
 </layout>
