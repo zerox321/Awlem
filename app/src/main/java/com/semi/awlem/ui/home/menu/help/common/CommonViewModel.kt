@@ -9,14 +9,14 @@ import com.semi.awlem.base.BaseViewModel
 import com.semi.awlem.ui.home.menu.help.HelpRepository
 import com.semi.awlem.utility.ContextConverter.getActivity
 import com.semi.awlem.utility.SnackBar.customSnackBar
-import com.semi.entity.response.menu.FaqResponse
+import com.semi.entity.database.faqController.FaqEntity
 import kotlinx.coroutines.launch
 
 class CommonViewModel @ViewModelInject constructor(
     private val repository: HelpRepository,
     @Assisted private val savedStateHandle: SavedStateHandle
 ) : BaseViewModel() {
-    val faq: FaqResponse? = savedStateHandle.get<FaqResponse>("faq")
+    val faq: FaqEntity? = savedStateHandle.get<FaqEntity>("faq")
 
     fun yesRateCommon(v: View) {
         rateCommon(v = v, helpfull = "1")

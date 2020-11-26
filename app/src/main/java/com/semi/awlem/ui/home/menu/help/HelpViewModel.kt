@@ -18,7 +18,7 @@ import com.semi.awlem.utility.SnackBar.customSnackBar
 import com.semi.awlem.utility.dialog.LoginGuestDialog.showLoginGuestDialog
 import com.semi.awlem.utility.isInputEmpty
 import com.semi.awlem.utility.showErrorSnackBar
-import com.semi.entity.response.menu.FaqResponse
+import com.semi.entity.database.faqController.FaqEntity
 import kotlinx.coroutines.launch
 
 class HelpViewModel @ViewModelInject constructor(
@@ -29,16 +29,17 @@ class HelpViewModel @ViewModelInject constructor(
     val messageAddress = MutableLiveData<String>("")
     val content = MutableLiveData<String>("")
 
+
+    val faqLiveData = repository.getFaqLiveData()
+
     init {
         getFaq(null)
     }
 
     fun getFaq(v: View?) {
         viewModelScope.launch {
-            repository.getFaqTaskRepo(onLoading = { loading: Boolean ->
-            },
-                onSuccess = { list: List<FaqResponse>? ->
-                    faqsAdapter.submitList(list)
+            repository.getFaqTaskRepo(
+                onLoading = { loading: Boolean ->
                 },
                 onError = { errorMessageId: Int, errorContent, icon: Int ->
                     val activity = v?.context?.getActivity()
@@ -100,7 +101,7 @@ class HelpViewModel @ViewModelInject constructor(
         }
     }
 
-    override fun onItemClick(v: View, faq: FaqResponse) {
+    override fun onItemClick(v: View, faq: FaqEntity) {
         v.findNavigationController().navigateTo(
             id = R.id.action_HelpFragment_to_CommonFragment,
             args = Bundle().apply {

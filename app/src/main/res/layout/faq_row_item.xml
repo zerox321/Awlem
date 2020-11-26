@@ -8,7 +8,7 @@
 
         <variable
             name="Faq"
-            type="com.semi.entity.response.menu.FaqResponse" />
+            type="com.semi.entity.database.faqController.FaqEntity" />
 
         <variable
             name="ClickListener"

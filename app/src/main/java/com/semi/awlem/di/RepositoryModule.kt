@@ -4,6 +4,7 @@ import com.semi.awlem.ui.home.home.HomeRepository
 import com.semi.awlem.ui.home.menu.help.HelpRepository
 import com.semi.awlem.ui.home.menu.staticPage.StaticRepository
 import com.semi.entity.database.categoryController.CategoryController
+import com.semi.entity.database.faqController.FaqController
 import com.semi.entity.sharedPref.Pref
 import com.semi.home.home.HomeClient
 import com.semi.home.menu.faq.FaqClient
@@ -42,9 +43,10 @@ object RepositoryModule {
     @Provides
     @Singleton
     fun provideHelpRepository(
-        client: FaqClient
+        client: FaqClient,
+        faqController: FaqController
     ): HelpRepository {
-        return HelpRepository(client)
+        return HelpRepository(client, faqController)
     }
 
 

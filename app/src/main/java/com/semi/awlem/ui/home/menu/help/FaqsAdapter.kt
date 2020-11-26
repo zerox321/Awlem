@@ -9,11 +9,11 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.semi.awlem.R
 import com.semi.awlem.databinding.FaqRowItemBinding
-import com.semi.entity.response.menu.FaqResponse
+import com.semi.entity.database.faqController.FaqEntity
 
 
 class FaqsAdapter(private val clickListener: ClickListener) :
-    ListAdapter<FaqResponse, FaqsAdapter.ViewHolder>(
+    ListAdapter<FaqEntity, FaqsAdapter.ViewHolder>(
         USER_COMPARATOR
     ) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -47,7 +47,7 @@ class FaqsAdapter(private val clickListener: ClickListener) :
         }
 
         fun bind(
-            faq: FaqResponse,
+            faq: FaqEntity,
             clickListener: ClickListener,
         ) {
             binding.faq = faq
@@ -58,16 +58,16 @@ class FaqsAdapter(private val clickListener: ClickListener) :
     }
 
     companion object {
-        private val USER_COMPARATOR = object : DiffUtil.ItemCallback<FaqResponse>() {
+        private val USER_COMPARATOR = object : DiffUtil.ItemCallback<FaqEntity>() {
             override fun areItemsTheSame(
-                oldItem: FaqResponse,
-                newItem: FaqResponse
+                oldItem: FaqEntity,
+                newItem: FaqEntity
             ): Boolean =
                 newItem.id == oldItem.id
 
             override fun areContentsTheSame(
-                oldItem: FaqResponse,
-                newItem: FaqResponse
+                oldItem: FaqEntity,
+                newItem: FaqEntity
             ): Boolean =
                 newItem == oldItem
         }
@@ -75,7 +75,7 @@ class FaqsAdapter(private val clickListener: ClickListener) :
 
 
     interface ClickListener {
-        fun onItemClick(v: View, faq: FaqResponse)
+        fun onItemClick(v: View, faq: FaqEntity)
     }
 }
 

@@ -70,7 +70,7 @@
         tools:layout="@layout/common_fragment">
         <argument
             android:name="faq"
-            app:argType="com.semi.entity.response.menu.FaqResponse" />
+            app:argType="com.semi.entity.database.faqController.FaqEntity" />
     </fragment>
     <fragment
         android:id="@+id/StaticPageFragment"

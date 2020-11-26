@@ -7,6 +7,8 @@ import com.semi.awlem.R
 import com.semi.entity.database.AppDatabase
 import com.semi.entity.database.categoryController.CategoryController
 import com.semi.entity.database.categoryController.CategoryDao
+import com.semi.entity.database.faqController.FaqController
+import com.semi.entity.database.faqController.FaqDao
 import com.semi.entity.sharedPref.Pref
 import dagger.Module
 import dagger.Provides
@@ -50,6 +52,20 @@ object PersistenceModule {
     @Singleton
     fun provideCategoryController(dao: CategoryDao): CategoryController {
         return CategoryController(dao = dao)
+    }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @Provides
+    @Singleton
+    fun provideFaqDao(database: AppDatabase): FaqDao {
+        return database.faqDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideFaqController(dao: FaqDao): FaqController {
+        return FaqController(dao = dao)
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
