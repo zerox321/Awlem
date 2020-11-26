@@ -7,6 +7,7 @@ object EndPoint {
     const val getTypesConstant = "getTypes"
     const val sugestedRestorantsConstant = "sugestedRestorants"
     const val sugestedProductsConstant = "sugestedProducts"
+    const val faqConstant = "faq"
 
 
 }

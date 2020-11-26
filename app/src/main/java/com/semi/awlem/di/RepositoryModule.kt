@@ -1,8 +1,13 @@
 package com.semi.awlem.di
 
 import com.semi.awlem.ui.home.home.HomeRepository
+import com.semi.awlem.ui.home.menu.help.HelpRepository
+import com.semi.awlem.ui.home.menu.staticPage.StaticRepository
 import com.semi.entity.database.categoryController.CategoryController
+import com.semi.entity.sharedPref.Pref
 import com.semi.home.home.HomeClient
+import com.semi.home.menu.faq.FaqClient
+import com.semi.home.menu.staticPage.StaticPageClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,6 +27,24 @@ object RepositoryModule {
         categoryController: CategoryController
     ): HomeRepository {
         return HomeRepository(client, categoryController)
+    }
+
+
+    @Provides
+    @Singleton
+    fun provideStaticRepository(
+        client: StaticPageClient,
+        pref: Pref
+    ): StaticRepository {
+        return StaticRepository(client, pref)
+    }
+
+    @Provides
+    @Singleton
+    fun provideHelpRepository(
+        client: FaqClient
+    ): HelpRepository {
+        return HelpRepository(client)
     }
 
 

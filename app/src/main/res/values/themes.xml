@@ -99,10 +99,9 @@
     </style>
     <style name="back_style">
         <item name="android:drawablePadding">@dimen/key_linesV</item>
-        <item name="android:textColor">@color/primary</item>
+        <item name="android:textColor">@color/secondary</item>
         <item name="android:paddingStart">@dimen/key_linesV</item>
         <item name="android:paddingEnd">@dimen/key_linesV</item>
-
         <item name="android:paddingTop">@dimen/key_lines</item>
         <item name="android:paddingBottom">@dimen/key_lines</item>
         <item name="android:textSize">@dimen/mainFont</item>

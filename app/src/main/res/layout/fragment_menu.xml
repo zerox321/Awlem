@@ -95,7 +95,6 @@
                 android:textAlignment="viewStart"
                 android:textColor="@color/secondary"
                 android:textSize="@dimen/mainFont"
-
                 app:drawableEndCompat="@drawable/ic_component_45_1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -116,6 +115,7 @@
                 android:textAlignment="viewStart"
                 android:textColor="@color/secondary"
                 android:textSize="@dimen/mainFont"
+                android:onClick="@{viewModel::helpClick}"
 
                 app:drawableEndCompat="@drawable/ic_component_45_1"
                 app:layout_constraintEnd_toEndOf="parent"

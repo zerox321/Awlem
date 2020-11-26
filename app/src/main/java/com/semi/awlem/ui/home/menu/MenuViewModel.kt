@@ -40,4 +40,11 @@ class MenuViewModel : BaseViewModel() {
 
     }
 
+    fun helpClick(v: View) {
+        v.findNavigationController().navigateTo(
+            id = R.id.action_navigation_more_to_HelpFragment,
+        )
+
+    }
+
 }
