@@ -71,6 +71,62 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/commonTv" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/isItHelpfulTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/key_lines"
+                android:text="هل كان مفيد لك؟"
+                android:textAlignment="viewStart"
+                android:textColor="@color/secondary"
+                android:textSize="@dimen/mainFont"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/commonContent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/yesTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/key_linesV"
+                android:background="@drawable/grey_rounded_corners"
+                android:ems="3"
+                android:enabled="@{!viewModel.isLoading()}"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:onClick="@{viewModel::yesRateCommon}"
+                android:paddingStart="@dimen/key_lines"
+                android:paddingTop="@dimen/key_linesV"
+                android:paddingEnd="@dimen/key_lines"
+                android:paddingBottom="@dimen/key_linesV"
+                android:text="نعم"
+                android:textColor="@color/secondary"
+                android:textSize="@dimen/mainFont"
+                app:layout_constraintStart_toStartOf="@+id/isItHelpfulTv"
+                app:layout_constraintTop_toBottomOf="@+id/isItHelpfulTv" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/noTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/key_linesV"
+                android:background="@drawable/grey_rounded_corners"
+                android:ems="3"
+                android:enabled="@{!viewModel.isLoading()}"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:onClick="@{viewModel::noRateCommon}"
+                android:paddingStart="@dimen/key_lines"
+                android:paddingTop="@dimen/key_linesV"
+                android:paddingEnd="@dimen/key_lines"
+                android:paddingBottom="@dimen/key_linesV"
+                android:text="لا"
+                android:textColor="@color/secondary"
+                android:textSize="@dimen/mainFont"
+                app:layout_constraintStart_toEndOf="@+id/yesTv"
+                app:layout_constraintTop_toBottomOf="@+id/isItHelpfulTv" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </layout>

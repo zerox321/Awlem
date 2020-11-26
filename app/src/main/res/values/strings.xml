@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Awlem</string>
+    <string name="app_db">olem_db</string>
 
     <string name="select_image">أختار صـورة</string>
     <string name="gallery">معرض الصور</string>
@@ -63,6 +64,7 @@
     <string name="about">عن التطبيق</string>
     <string name="rate">قيم التطبيق</string>
     <string name="skip">تخطي</string>
-    <string name="app_db">olem_db</string>
+    <string name="thanks">شكرا لاستخدام تطبيق أوليم</string>
+    <string name="rate_done">تم تقييم السؤال بنجاح </string>
     <string name="common">الأسئلة الشائعة</string>
 </resources>

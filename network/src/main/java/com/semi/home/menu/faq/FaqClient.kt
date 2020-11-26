@@ -10,5 +10,9 @@ class FaqClient @Inject constructor(private val service: FaqService) {
         service.getFaqAsync().await()
     }
 
+    suspend fun rateFqaTask(faq_id: String, helpfull: String) = withContext(Dispatchers.IO) {
+        service.rateFqaAsync(faq_id = faq_id, helpfull = helpfull).await()
+    }
+
 
 }
