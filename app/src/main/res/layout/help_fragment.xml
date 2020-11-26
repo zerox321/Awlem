@@ -12,133 +12,134 @@
             name="viewModel"
             type="com.semi.awlem.ui.home.menu.help.HelpViewModel" />
     </data>
-<androidx.core.widget.NestedScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/key_lines"
-        tools:context=".ui.home.menu.help.HelpFragment">
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/key_lines"
+            tools:context=".ui.home.menu.help.HelpFragment">
 
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/backTv"
-            style="@style/back_style"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="@{viewModel::onBack}"
-            android:text="@string/help"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/backTv"
+                style="@style/back_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::onBack}"
+                android:text="@string/help"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/appCompatImageView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:scaleType="fitXY"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/backTv"
-            app:srcCompat="@drawable/help" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/appCompatImageView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/backTv"
+                app:srcCompat="@drawable/help" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/commonTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/key_lines"
-            android:text="@string/common"
-            android:textColor="@color/secondary"
-            android:textSize="@dimen/mainFont"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appCompatImageView" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/commonTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/key_lines"
+                android:text="@string/common"
+                android:textColor="@color/secondary"
+                android:textSize="@dimen/mainFont"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appCompatImageView" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/commonRv"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/key_lines"
-            android:orientation="vertical"
-            android:scrollbars="vertical"
-            app:adapter="@{viewModel.faqsAdapter}"
-            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/commonTv"
-            tools:listitem="@layout/faq_row_item" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/commonRv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/key_lines"
+                android:orientation="vertical"
+                android:scrollbars="vertical"
+                app:adapter="@{viewModel.faqsAdapter}"
+                app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/commonTv"
+                tools:listitem="@layout/faq_row_item" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/ontherQTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/key_lines"
-            android:text="@string/add_one_faq"
-            android:textColor="@color/secondary"
-            android:textSize="@dimen/mainFont"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/commonRv" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/ontherQTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/key_lines"
+                android:text="@string/add_one_faq"
+                android:textColor="@color/secondary"
+                android:textSize="@dimen/mainFont"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/commonRv" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/messageAddressTextInput"
-            style="@style/borderMyEditTextStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/key_lines"
-            android:enabled="@{!viewModel.isLoading()}"
-            android:hint="@string/message_address"
-            android:inputType="text"
-            android:singleLine="true"
-            android:text="@={viewModel.messageAddress}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ontherQTv" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/messageAddressTextInput"
+                style="@style/borderMyEditTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/key_lines"
+                android:enabled="@{!viewModel.isLoading()}"
+                android:hint="@string/message_address"
+                android:inputType="text"
+                android:singleLine="true"
+                android:text="@={viewModel.messageAddress}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ontherQTv" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/contentTextInput"
-            style="@style/borderMyEditTextStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:enabled="@{!viewModel.isLoading()}"
-            android:hint="@string/message_content"
-            android:inputType="textMultiLine"
-            android:minLines="4"
-            android:text="@={viewModel.content}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/messageAddressTextInput" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/contentTextInput"
+                style="@style/borderMyEditTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:enabled="@{!viewModel.isLoading()}"
+                android:hint="@string/message_content"
+                android:inputType="textMultiLine"
+                android:minLines="4"
+                android:text="@={viewModel.content}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/messageAddressTextInput" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/save_bt"
-            style="@style/MyButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/button_padding"
-            android:enabled="@{!viewModel.isLoading()}"
-            android:onClick="@{(v)->viewModel.loginClick(v,messageAddressTextInput,contentTextInput)}"
-            android:text="@string/send"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/contentTextInput" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/save_bt"
+                style="@style/MyButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/button_padding"
+                android:enabled="@{!viewModel.isLoading()}"
+                android:onClick="@{(v)->viewModel.loginClick(v,messageAddressTextInput,contentTextInput)}"
+                android:text="@string/send"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/contentTextInput" />
 
 
-        <androidx.core.widget.ContentLoadingProgressBar
-            style="@style/Widget.AppCompat.ProgressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|start"
-            android:scaleX="0.6"
-            android:scaleY="0.6"
-            android:theme="@style/CircularProgress"
-            android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.INVISIBLE}"
-            app:layout_constraintBottom_toBottomOf="@+id/save_bt"
-            app:layout_constraintEnd_toEndOf="@+id/save_bt"
-            app:layout_constraintHorizontal_bias="0.3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/save_bt"
-            app:layout_constraintVertical_bias="0.0" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>
+            <androidx.core.widget.ContentLoadingProgressBar
+                style="@style/Widget.AppCompat.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|start"
+                android:scaleX="0.6"
+                android:scaleY="0.6"
+                android:theme="@style/CircularProgress"
+                android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.INVISIBLE}"
+                app:layout_constraintBottom_toBottomOf="@+id/save_bt"
+                app:layout_constraintEnd_toEndOf="@+id/save_bt"
+                app:layout_constraintHorizontal_bias="0.3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/save_bt"
+                app:layout_constraintVertical_bias="0.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </layout>

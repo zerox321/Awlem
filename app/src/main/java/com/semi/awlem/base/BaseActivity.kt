@@ -8,7 +8,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.semi.awlem.utility.LangUtil.setLanguage
 import java.util.*
-import javax.inject.Inject
 
 
 @SuppressLint("Registered")

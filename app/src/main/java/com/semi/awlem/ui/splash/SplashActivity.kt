@@ -1,15 +1,11 @@
 package com.semi.awlem.ui.splash
 
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.semi.awlem.R
 import com.semi.awlem.base.BaseActivity
 import com.semi.awlem.databinding.ActivitySplashBinding
-import com.semi.awlem.utility.NavigationUtil.navigateTo
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

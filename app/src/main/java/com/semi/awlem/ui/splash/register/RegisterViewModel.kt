@@ -2,34 +2,27 @@ package com.semi.awlem.ui.splash.register
 
 import android.view.View
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.google.android.material.textfield.TextInputEditText
 import com.semi.awlem.R
 import com.semi.awlem.base.BaseViewModel
-import com.semi.awlem.utility.ContextConverter.getActivity
-import com.semi.awlem.utility.KeyboardUtil.hideKeyboard
 import com.semi.awlem.utility.NavigationUtil.findNavigationController
 import com.semi.awlem.utility.NavigationUtil.navigateTo
-import com.semi.awlem.utility.isInputEmpty
-import com.semi.awlem.utility.showErrorSnackBar
-import kotlinx.coroutines.launch
 
-    class RegisterViewModel : BaseViewModel() {
-        val fullName = MutableLiveData<String>("")
-        val email = MutableLiveData<String>("")
-        val phone = MutableLiveData<String>("")
-        val password = MutableLiveData<String>("")
-        val confirmPassword = MutableLiveData<String>("")
+class RegisterViewModel : BaseViewModel() {
+    val fullName = MutableLiveData<String>("")
+    val email = MutableLiveData<String>("")
+    val phone = MutableLiveData<String>("")
+    val password = MutableLiveData<String>("")
+    val confirmPassword = MutableLiveData<String>("")
 
-        fun loginClick(
-            v: View,
-            phoneTextInput: TextInputEditText,
-            passwordTextInput: TextInputEditText
-        ) {
-            v.findNavigationController().navigateTo(
-                id = R.id.action_RegisterFragment_to_VerificationFragment,
-            )
+    fun loginClick(
+        v: View,
+        phoneTextInput: TextInputEditText,
+        passwordTextInput: TextInputEditText
+    ) {
+        v.findNavigationController().navigateTo(
+            id = R.id.action_RegisterFragment_to_VerificationFragment,
+        )
 //
 //            val activity = v.context.getActivity()
 //
@@ -59,5 +52,5 @@ import kotlinx.coroutines.launch
 //                }
 //
 //            }
-        }
     }
+}

@@ -109,9 +109,9 @@ dependencies {
     api 'com.github.ibrahimsn98:SmoothBottomBar:1.7.6'
 
 
-    implementation  'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
-    implementation  'jp.wasabeef:glide-transformations:4.1.0'
+    implementation 'jp.wasabeef:glide-transformations:4.1.0'
 
     api 'com.chaos.view:pinview:1.4.4'
 
@@ -132,11 +132,9 @@ dependencies {
     api 'com.github.chrisbanes:PhotoView:2.3.0'
 
 
-
     api 'com.andrognito.flashbar:flashbar:1.0.3'
 
     api 'de.hdodenhof:circleimageview:3.1.0'
-
 
 
 }

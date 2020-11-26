@@ -5,7 +5,7 @@ import android.view.View
 
 object SlideViewAnimator {
     fun View.startSlideView(
-        height:Float,
+        height: Float,
         onAnimationStart: () -> Unit,
         onAnimationEnd: () -> Unit
     ) {
