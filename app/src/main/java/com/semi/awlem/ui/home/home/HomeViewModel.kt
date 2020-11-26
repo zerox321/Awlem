@@ -9,7 +9,7 @@ import com.semi.awlem.ui.home.home.adapter.SuggestProductsAdapter
 import com.semi.awlem.ui.home.home.adapter.SuggestRestaurantAdapter
 import com.semi.awlem.utility.ContextConverter.getActivity
 import com.semi.awlem.utility.SnackBar.customSnackBar
-import com.semi.entity.response.home.CategoryResponse
+import com.semi.entity.database.categoryController.CategoryEntity
 import com.semi.entity.response.home.SuggestedProducts
 import com.semi.entity.response.home.SuggestedRestaurantsResponse
 import kotlinx.coroutines.async
@@ -27,10 +27,10 @@ class HomeViewModel @ViewModelInject constructor(private val repository: HomeRep
         suggestedProducts(null)
     }
 
+    val categoriesLiveData = repository.getCategoriesLiveData()
     fun getTypes(v: View?) {
         viewModelScope.async {
             repository.getTypesTaskRepo(onLoading = {},
-                onSuccess = { list: List<CategoryResponse>? -> categoryAdapter.submitList(list) },
                 onError = { errorMessageId: Int, errorContent, icon: Int ->
                     val activity = v?.context?.getActivity()
                     activity?.customSnackBar(
@@ -78,7 +78,7 @@ class HomeViewModel @ViewModelInject constructor(private val repository: HomeRep
         }
     }
 
-    override fun onItemClick(v: View, car: CategoryResponse) {
+    override fun onItemClick(v: View, car: CategoryEntity) {
 
     }
 

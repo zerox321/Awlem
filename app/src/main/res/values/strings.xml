@@ -63,4 +63,5 @@
     <string name="about">عن التطبيق</string>
     <string name="rate">قيم التطبيق</string>
     <string name="skip">تخطي</string>
+    <string name="app_db">olem_db</string>
 </resources>

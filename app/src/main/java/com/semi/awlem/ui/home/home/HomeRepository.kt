@@ -3,7 +3,7 @@ package com.semi.awlem.ui.home.home
 import com.semi.awlem.R
 import com.semi.awlem.base.BaseRepository
 import com.semi.awlem.utility.handleThrowable
-import com.semi.entity.response.home.CategoryResponse
+import com.semi.entity.database.categoryController.CategoryController
 import com.semi.entity.response.home.SuggestedProducts
 import com.semi.entity.response.home.SuggestedRestaurantsResponse
 import com.semi.home.home.HomeClient
@@ -12,13 +12,14 @@ import javax.inject.Inject
 
 
 class HomeRepository @Inject constructor(
-    private val client: HomeClient
+    private val client: HomeClient,
+    private val categoryController: CategoryController
 ) : BaseRepository() {
 
+    fun getCategoriesLiveData() = categoryController.getDao().getList()
 
     suspend fun getTypesTaskRepo(
         onLoading: (Boolean) -> Unit,
-        onSuccess: (List<CategoryResponse>?) -> Unit,
         onError: (Int, Int, Int) -> Unit
 
     ) {
@@ -27,7 +28,7 @@ class HomeRepository @Inject constructor(
         try {
             val response = client.getTypesTask()
             Timber.tag(TAG).e("getTypesTaskRepo response $response")
-            onSuccess(response)
+            categoryController.insertCategoryList(response)
 
         } catch (throwable: Throwable) {
             Timber.tag(TAG).e("getTypesTaskRepo error $throwable")

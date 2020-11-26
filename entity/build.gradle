@@ -43,7 +43,7 @@ dependencies {
     api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
 //     database
-    implementation "androidx.room:room-runtime:$versions.roomVersion"
+    api "androidx.room:room-ktx:$versions.roomVersion"
     kapt "androidx.room:room-compiler:$versions.roomVersion"
     testImplementation "androidx.room:room-testing:$versions.roomVersion"
     testImplementation "androidx.arch.core:core-testing:$versions.archCompomentVersion"

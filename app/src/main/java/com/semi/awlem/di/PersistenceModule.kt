@@ -1,7 +1,12 @@
 package com.semi.awlem.di
 
 import android.content.Context
+import androidx.room.Room
 import com.semi.awlem.BuildConfig
+import com.semi.awlem.R
+import com.semi.entity.database.AppDatabase
+import com.semi.entity.database.categoryController.CategoryController
+import com.semi.entity.database.categoryController.CategoryDao
 import com.semi.entity.sharedPref.Pref
 import dagger.Module
 import dagger.Provides
@@ -21,31 +26,31 @@ object PersistenceModule {
     }
 
 
-//    @Provides
-//    @Singleton
-//    fun provideAppDatabase(@ApplicationContext appContext: Context): AppDatabase {
-//        return Room.databaseBuilder(
-//            appContext,
-//            AppDatabase::class.java,
-//            appContext.getString(R.string.app_db)
-//        )
-//            .allowMainThreadQueries()
-//            .fallbackToDestructiveMigration()
-//            .build()
-//    }
-//
-//    ////////////////////////////////////////////////////////////////////////////////////////////////////
-//    @Provides
-//    @Singleton
-//    fun provideCarColorDao(database: AppDatabase): CarColorDao {
-//        return database.carColorDao()
-//    }
-//
-//    @Provides
-//    @Singleton
-//    fun provideCarColorController(dao: CarColorDao): CarColorController {
-//        return CarColorController(dao = dao)
-//    }
+    @Provides
+    @Singleton
+    fun provideAppDatabase(@ApplicationContext appContext: Context): AppDatabase {
+        return Room.databaseBuilder(
+            appContext,
+            AppDatabase::class.java,
+            appContext.getString(R.string.app_db)
+        )
+            .allowMainThreadQueries()
+            .fallbackToDestructiveMigration()
+            .build()
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    @Provides
+    @Singleton
+    fun provideCategoryDao(database: AppDatabase): CategoryDao {
+        return database.categoryDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideCategoryController(dao: CategoryDao): CategoryController {
+        return CategoryController(dao = dao)
+    }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 

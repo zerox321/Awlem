@@ -7,7 +7,7 @@ import com.squareup.moshi.Json
 
 @Keep
 data class CategoryResponse(
-    @Json(name = "id") val id: Int?,
+    @Json(name = "id") val id: Int,
     @Json(name = "name") val name: String?,
     @Json(name = "photo") val photo: String?
 )

@@ -7,7 +7,7 @@
 
         <variable
             name="Category"
-            type="com.semi.entity.response.home.CategoryResponse" />
+            type="com.semi.entity.database.categoryController.CategoryEntity" />
 
         <variable
             name="ClickListener"

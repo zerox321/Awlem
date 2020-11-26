@@ -1,6 +1,7 @@
 package com.semi.awlem.di
 
 import com.semi.awlem.ui.home.home.HomeRepository
+import com.semi.entity.database.categoryController.CategoryController
 import com.semi.home.home.HomeClient
 import dagger.Module
 import dagger.Provides
@@ -16,8 +17,11 @@ object RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideHomeRepository(client: HomeClient): HomeRepository {
-        return HomeRepository(client)
+    fun provideHomeRepository(
+        client: HomeClient,
+        categoryController: CategoryController
+    ): HomeRepository {
+        return HomeRepository(client, categoryController)
     }
 
 

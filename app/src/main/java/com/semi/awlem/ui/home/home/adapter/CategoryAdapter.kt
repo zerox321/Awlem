@@ -9,11 +9,11 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.semi.awlem.R
 import com.semi.awlem.databinding.CategoryRowItemBinding
-import com.semi.entity.response.home.CategoryResponse
+import com.semi.entity.database.categoryController.CategoryEntity
 
 
 class CategoryAdapter(private val clickListener: ClickListener) :
-    ListAdapter<CategoryResponse, CategoryAdapter.ViewHolder>(
+    ListAdapter<CategoryEntity, CategoryAdapter.ViewHolder>(
         USER_COMPARATOR
     ) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -24,7 +24,7 @@ class CategoryAdapter(private val clickListener: ClickListener) :
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        getItem(position).let { item: CategoryResponse ->
+        getItem(position).let { item: CategoryEntity ->
             holder.bind(item, clickListener)
         }
     }
@@ -47,7 +47,7 @@ class CategoryAdapter(private val clickListener: ClickListener) :
         }
 
         fun bind(
-            Category: CategoryResponse,
+            Category: CategoryEntity,
             clickListener: ClickListener
         ) {
             binding.clickListener = clickListener
@@ -57,23 +57,23 @@ class CategoryAdapter(private val clickListener: ClickListener) :
     }
 
     companion object {
-        private val USER_COMPARATOR = object : DiffUtil.ItemCallback<CategoryResponse>() {
+        private val USER_COMPARATOR = object : DiffUtil.ItemCallback<CategoryEntity>() {
             override fun areItemsTheSame(
-                oldItem: CategoryResponse,
-                newItem: CategoryResponse
+                oldItem: CategoryEntity,
+                newItem: CategoryEntity
             ): Boolean =
                 newItem.id == oldItem.id
 
             override fun areContentsTheSame(
-                oldItem: CategoryResponse,
-                newItem: CategoryResponse
+                oldItem: CategoryEntity,
+                newItem: CategoryEntity
             ): Boolean =
                 newItem == oldItem
         }
     }
 
     interface ClickListener {
-        fun onItemClick(v: View, car: CategoryResponse)
+        fun onItemClick(v: View, car: CategoryEntity)
     }
 }
 
