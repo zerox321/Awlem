@@ -47,7 +47,7 @@
             android:id="@+id/commonTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/key_lines"
+            android:layout_marginTop="@dimen/key_lines"
             android:text="@string/common"
             android:textColor="@color/secondary"
             android:textSize="@dimen/mainFont"
@@ -73,13 +73,72 @@
             android:id="@+id/ontherQTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/key_lines"
-            android:text="اذا لم تجد ما تبحث عنه ارسل لنا استفسارك"
+            android:layout_marginTop="@dimen/key_lines"
+            android:text="@string/add_one_faq"
             android:textColor="@color/secondary"
             android:textSize="@dimen/mainFont"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/commonRv" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/messageAddressTextInput"
+            style="@style/borderMyEditTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/key_lines"
+            android:enabled="@{!viewModel.isLoading()}"
+            android:hint="@string/message_address"
+            android:inputType="text"
+            android:singleLine="true"
+            android:text="@={viewModel.messageAddress}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ontherQTv" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/contentTextInput"
+            style="@style/borderMyEditTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:enabled="@{!viewModel.isLoading()}"
+            android:hint="@string/message_content"
+            android:inputType="textMultiLine"
+            android:minLines="4"
+            android:text="@={viewModel.content}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/messageAddressTextInput" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/save_bt"
+            style="@style/MyButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/button_padding"
+            android:enabled="@{!viewModel.isLoading()}"
+            android:onClick="@{(v)->viewModel.loginClick(v,messageAddressTextInput,contentTextInput)}"
+            android:text="@string/send"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contentTextInput" />
+
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|start"
+            android:scaleX="0.6"
+            android:scaleY="0.6"
+            android:theme="@style/CircularProgress"
+            android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toBottomOf="@+id/save_bt"
+            app:layout_constraintEnd_toEndOf="@+id/save_bt"
+            app:layout_constraintHorizontal_bias="0.3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/save_bt"
+            app:layout_constraintVertical_bias="0.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
 </layout>

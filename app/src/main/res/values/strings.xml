@@ -67,4 +67,8 @@
     <string name="thanks">شكرا لاستخدام تطبيق أوليم</string>
     <string name="rate_done">تم تقييم السؤال بنجاح </string>
     <string name="common">الأسئلة الشائعة</string>
+    <string name="add_one_faq">اذا لم تجد ما تبحث عنه ارسل لنا استفسارك</string>
+    <string name="message_address">عنوان الرسالة</string>
+    <string name="message_content">رسالتك</string>
+    <string name="send">ارسال</string>
 </resources>
