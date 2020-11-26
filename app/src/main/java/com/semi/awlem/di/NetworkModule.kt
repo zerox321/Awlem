@@ -3,6 +3,8 @@ package com.semi.awlem.di
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.semi.home.home.HomeClient
 import com.semi.home.home.HomeService
+import com.semi.home.menu.staticPage.StaticPageClient
+import com.semi.home.menu.staticPage.StaticPageService
 import com.semi.network.BuildConfig
 import com.semi.network.EndPoint
 import com.semi.network.RequestInterceptor
@@ -64,6 +66,18 @@ object NetworkModule {
     @Singleton
     fun provideHomeClient(service: HomeService): HomeClient {
         return HomeClient(service)
+    }
+
+    @Provides
+    @Singleton
+    fun provideStaticPageService(retrofit: Retrofit): StaticPageService {
+        return retrofit.create(StaticPageService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideStaticPageClient(service: StaticPageService): StaticPageClient {
+        return StaticPageClient(service)
     }
 
 
