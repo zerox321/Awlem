@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+
+        <variable
+            name="viewModel"
+            type="com.semi.awlem.ui.home.menu.rate.RateViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/key_lines"
+            tools:context=".ui.home.menu.rate.RateFragment">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/backTv"
+                style="@style/back_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::onBack}"
+                android:text="@string/rate"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/key_lines"
+                android:text="هل يعجبك التطبيق؟"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/mainFont"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/backTv" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/key_lines"
+                android:text="ساعدنا علي تطوير التطبيق لتقديم افضل خدمة ممكنة"
+                android:textColor="@color/secondary"
+                android:textSize="@dimen/secondFont"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title" />
+
+            <RatingBar
+                android:id="@+id/rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/key_lines"
+                android:numStars="5"
+                android:rating="3.5"
+                android:saveEnabled="true"
+                android:theme="@style/AppThemeRatingBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/content" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/contentTextInput"
+                style="@style/borderMyEditTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:enabled="@{!viewModel.isLoading()}"
+                android:hint="@string/comment"
+                android:inputType="textMultiLine"
+                android:minLines="4"
+                android:text="@={viewModel.content}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rating" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/save_bt"
+                style="@style/MyButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/button_padding"
+                android:enabled="@{!viewModel.isLoading()}"
+                android:onClick="@{(v)->viewModel.sendClick(v,rating,contentTextInput)}"
+                android:text="@string/send"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/contentTextInput" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

@@ -39,8 +39,19 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_navigation_more_to_RateFragment"
+            app:destination="@id/RateFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 
+    <fragment
+        android:id="@+id/RateFragment"
+        android:name="com.semi.awlem.ui.home.menu.rate.RateFragment"
+        tools:layout="@layout/rate_fragment" />
     <fragment
         android:id="@+id/HelpFragment"
         android:name="com.semi.awlem.ui.home.menu.help.HelpFragment"

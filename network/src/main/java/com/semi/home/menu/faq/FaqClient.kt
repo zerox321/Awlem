@@ -14,5 +14,9 @@ class FaqClient @Inject constructor(private val service: FaqService) {
         service.rateFqaAsync(faq_id = faq_id, helpfull = helpfull).await()
     }
 
+    suspend fun insertComplaintTask(name: String, body: String) = withContext(Dispatchers.IO) {
+        service.insertComplaintAsync(name = name, body = body).await()
+    }
+
 
 }

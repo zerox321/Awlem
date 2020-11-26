@@ -242,7 +242,7 @@
                 android:drawablePadding="@dimen/key_lines"
                 android:elevation="2dp"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:onClick='@{(v)->viewModel.staticClick(v,@string/rate,1)}'
+                android:onClick="@{viewModel::rateClick}"
                 android:padding="@dimen/key_lines"
                 android:text="@string/rate"
                 android:textAlignment="viewStart"

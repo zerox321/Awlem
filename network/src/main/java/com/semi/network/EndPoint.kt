@@ -9,5 +9,5 @@ object EndPoint {
     const val sugestedProductsConstant = "sugestedProducts"
     const val faqConstant = "faq"
     const val rateFqaConstant = "rateFqa"
-
+    const val insertComplaintConstant = "insertComplaint"
 }

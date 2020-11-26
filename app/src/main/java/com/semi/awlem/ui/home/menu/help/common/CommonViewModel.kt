@@ -16,7 +16,7 @@ class CommonViewModel @ViewModelInject constructor(
     private val repository: HelpRepository,
     @Assisted private val savedStateHandle: SavedStateHandle
 ) : BaseViewModel() {
-    val Faq: FaqResponse? = savedStateHandle.get<FaqResponse>("faq")
+    val faq: FaqResponse? = savedStateHandle.get<FaqResponse>("faq")
 
     fun yesRateCommon(v: View) {
         rateCommon(v = v, helpfull = "1")
@@ -30,7 +30,7 @@ class CommonViewModel @ViewModelInject constructor(
     private fun rateCommon(v: View, helpfull: String) {
         viewModelScope.launch {
             repository.rateFqaTaskRepo(
-                faq_id = Faq?.id.toString(),
+                faq_id = faq?.id.toString(),
                 helpfull = helpfull,
                 onLoading = { loading: Boolean -> _isLoading.value = loading },
                 onFinish = { errorMessageId: Int, errorContent, icon: Int ->

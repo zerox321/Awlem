@@ -57,5 +57,28 @@ class HelpRepository @Inject constructor(
         }
     }
 
+    suspend fun insertComplaintTaskRepo(
+        name: String,
+        body: String,
+        onLoading: (Boolean) -> Unit,
+        onFinish: (Int, Int, Int) -> Unit
+    ) {
+        onLoading(true)
+        Timber.tag(TAG).e("insertComplaintTaskRepo ")
+        try {
+            val response = client.insertComplaintTask(name = name, body = body)
+            Timber.tag(TAG).e("insertComplaintTaskRepo response $response")
+            val icon = R.drawable.ic_save_done
+            onFinish(R.string.rate_done, R.string.thanks, icon)
+        } catch (throwable: Throwable) {
+            Timber.tag(TAG).e("insertComplaintTaskRepo error $throwable")
+            val error = handleThrowable(throwable)
+            val icon = R.drawable.ic_wifi_black_24dp
+            onFinish(error, R.string.reload, icon)
+        }
+        onLoading(false)
+
+    }
+
 
 }

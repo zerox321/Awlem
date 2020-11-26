@@ -47,4 +47,11 @@ class MenuViewModel : BaseViewModel() {
 
     }
 
+    fun rateClick(v: View) {
+        v.findNavigationController().navigateTo(
+            id = R.id.action_navigation_more_to_RateFragment,
+        )
+
+    }
+
 }

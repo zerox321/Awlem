@@ -14,6 +14,7 @@ import com.semi.awlem.databinding.DialogLoginGuestBinding
 object LoginGuestDialog {
 
     fun Context.showLoginGuestDialog(
+        isCancelable: Boolean? = false,
         onLoginClick: () -> Unit
 
     ) {
@@ -33,8 +34,8 @@ object LoginGuestDialog {
         dialog.setContentView(binding.root)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         val width = (this.resources.displayMetrics.widthPixels * 0.9).toInt()
-        dialog.setCanceledOnTouchOutside(false)
-        dialog.setCancelable(false)
+        dialog.setCanceledOnTouchOutside(isCancelable ?: false)
+        dialog.setCancelable(isCancelable ?: false)
         dialog.window?.setLayout(
             width,
             ViewGroup.LayoutParams.WRAP_CONTENT
