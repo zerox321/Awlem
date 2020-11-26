@@ -1,15 +1,34 @@
 package com.semi.awlem.binding
 
 import android.graphics.Color
+import android.os.Handler
+import android.os.Looper
+import android.view.View
+import android.view.animation.AnimationUtils
 import android.webkit.WebView
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.semi.awlem.R
 import timber.log.Timber
 import java.util.*
 
+@BindingAdapter("bindSlideView")
+fun bindSlideView(view: View, isSlideUp: Boolean) {
+    val animID = if (isSlideUp) R.anim.slide_up else R.anim.slide_down
+    val lastVisibility = if (isSlideUp) View.VISIBLE else View.INVISIBLE
+    view.visibility = View.INVISIBLE
+    Looper.myLooper()?.let {
+        Handler(it).postDelayed({
+            view.startAnimation(AnimationUtils.loadAnimation(view.context, animID))
+            view.visibility = lastVisibility
+        }, 250)
+    }
+
+
+}
 
 @BindingAdapter("bindingPostUrl")
 fun bindingPostUrl(imageView: ImageView, path: String?) {

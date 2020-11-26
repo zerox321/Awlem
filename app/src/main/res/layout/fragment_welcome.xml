@@ -6,23 +6,24 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/brooke_lark_hl_ncigv_ui_4_q_unsplash"
+        android:background="@drawable/brooke"
         tools:context=".ui.splash.welcome.WelcomeFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:background="@drawable/rounded_edittext">
+            android:background="@drawable/rounded_welcome_top"
+
+            app:bindSlideView="@{true}">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/logoTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/button_padding"
+                android:layout_marginTop="@dimen/key_lines"
                 android:drawablePadding="@dimen/key_lines"
                 android:gravity="center"
-                android:padding="@dimen/key_lines"
                 android:text="@string/welcome_in"
                 android:textColor="@color/primary"
                 android:textSize="@dimen/HeaderFont"

@@ -267,6 +267,7 @@
                 android:text="@string/menu_logout"
                 android:textAlignment="viewStart"
                 android:textColor="@color/primary"
+                android:onClick="@{viewModel::onLogoutClick}"
 
                 android:textSize="@dimen/mainFont"
                 app:drawableEndCompat="@drawable/ic_mask_group_42"
