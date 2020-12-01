@@ -23,6 +23,7 @@ class MenuViewModel : BaseViewModel() {
     fun onLogoutClick(v: View) {
         val activity = v.context.getActivity()
         activity?.showLogoutDialog(onLogoutClick = {
+
             val splashActivity = SplashActivity::class.java as Class<*>
             activity.loadActivity(splashActivity)
         })
