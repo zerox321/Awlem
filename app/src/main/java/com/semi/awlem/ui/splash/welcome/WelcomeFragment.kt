@@ -11,9 +11,16 @@ import com.semi.awlem.ui.home.HomeActivity
 import com.semi.awlem.utility.ActivitiesLauncher.loadActivity
 import com.semi.awlem.utility.NavigationUtil.findNavigationController
 import com.semi.awlem.utility.NavigationUtil.navigateTo
+import com.semi.entity.sharedPref.Pref
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class WelcomeFragment : DataBindingFragment() {
+
+    @Inject
+    lateinit var pref: Pref
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

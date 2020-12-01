@@ -10,6 +10,12 @@ import com.semi.home.menu.staticPage.StaticPageService
 import com.semi.network.BuildConfig
 import com.semi.network.EndPoint
 import com.semi.network.RequestInterceptor
+import com.semi.splash.activate.ActivateClient
+import com.semi.splash.activate.ActivateService
+import com.semi.splash.login.LoginClient
+import com.semi.splash.login.LoginService
+import com.semi.splash.register.RegisterClient
+import com.semi.splash.register.RegisterService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -93,6 +99,43 @@ object NetworkModule {
     @Singleton
     fun provideFaqClient(service: FaqService): FaqClient {
         return FaqClient(service)
+    }
+
+
+    @Provides
+    @Singleton
+    fun provideLoginService(retrofit: Retrofit): LoginService {
+        return retrofit.create(LoginService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideLoginClient(service: LoginService): LoginClient {
+        return LoginClient(service)
+    }
+
+    @Provides
+    @Singleton
+    fun provideRegisterService(retrofit: Retrofit): RegisterService {
+        return retrofit.create(RegisterService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideRegisterClient(service: RegisterService): RegisterClient {
+        return RegisterClient(service)
+    }
+
+    @Provides
+    @Singleton
+    fun provideActivateService(retrofit: Retrofit): ActivateService {
+        return retrofit.create(ActivateService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideActivateClient(service: ActivateService): ActivateClient {
+        return ActivateClient(service)
     }
 
 

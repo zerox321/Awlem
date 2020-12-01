@@ -20,6 +20,7 @@
         <item name="colorControlHighlight">@color/colorPrimaryRipple</item>
 
         <item name="fontFamily">@font/font</item>
+        <item name="android:layoutDirection">rtl</item>
 
 
     </style>

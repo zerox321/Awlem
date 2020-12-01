@@ -2,13 +2,15 @@ package com.semi.entity.sharedPref
 
 import android.content.Context
 import android.content.Context.MODE_PRIVATE
+import com.google.gson.Gson
+import com.semi.entity.response.splash.LoginResponseData
 
 
 class Pref constructor(private val context: Context, private val PREFNAME: String) {
 
 
     //    private val PREFLANGUAGE = "$PREFNAME.language"
-//    private val userKey = "user"
+    private val userKey = "user"
     private val NotificationTokenKey = "NotificationToken"
 //    private val languageKey = "Language"
 
@@ -58,27 +60,27 @@ class Pref constructor(private val context: Context, private val PREFNAME: Strin
         editor.apply()
     }
 
-    fun getNotificationToken(): String? {
+    fun getNotificationToken(): String {
         val prefs = context.getSharedPreferences(NotificationTokenKey, MODE_PRIVATE)
-        return prefs.getString(NotificationTokenKey, " ")
+        return prefs.getString(NotificationTokenKey, " ") ?: ""
     }
 
 
-//    fun credentials(): String? =
-//        if (getUser()?.token != null) "Bearer ${getUser()?.token}" else null
+    fun credentials(): String? =
+        if (getUser()?.token != null) "Bearer ${getUser()?.token}" else null
 
 
-//    fun saveUser(response: LoginResponse) {
-//        val userJson = Gson().toJson(response)
-//        setStr(userKey, userJson)
-//
-//    }
-//
-//    fun getUser(): LoginResponse? {
-//        val userJson = getStr(userKey)
-//        return Gson().fromJson(userJson, LoginResponse::class.java)
-//
-//    }
+    fun saveUser(response: LoginResponseData) {
+        val userJson = Gson().toJson(response)
+        setStr(userKey, userJson)
+
+    }
+
+    fun getUser(): LoginResponseData? {
+        val userJson = getStr(userKey)
+        return Gson().fromJson(userJson, LoginResponseData::class.java)
+
+    }
 
 
 }

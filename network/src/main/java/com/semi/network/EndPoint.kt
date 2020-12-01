@@ -10,4 +10,8 @@ object EndPoint {
     const val faqConstant = "faq"
     const val rateFqaConstant = "rateFqa"
     const val insertComplaintConstant = "insertComplaint"
+    const val loginConstant = "login"
+    const val registerConstant = "register"
+    const val activeAccountConstant = "activeAccount"
+    const val reSendCodeConstant = "reSendCode"
 }

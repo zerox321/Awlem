@@ -134,7 +134,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/button_padding"
                 android:enabled="@{!viewModel.isLoading()}"
-                android:onClick="@{(v)->viewModel.loginClick(v,phoneTextInput,passwordTextInput)}"
+                android:onClick="@{(v)->viewModel.registerClick(v,nameTextInput,emailTextInput,phoneTextInput,passwordTextInput,confirmPasswordTextInput)}"
                 android:text="@string/register"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

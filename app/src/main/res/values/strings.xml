@@ -19,6 +19,9 @@
     <string name="phoneReq">يرجي أدخال رقم الهاتف</string>
     <string name="resend">إعادة ارسال</string>
     <string name="PasswordReq">"يرجي أدخال كلمة المرور "</string>
+    <string name="confirmPasswordReq">"يرجي أدخال تأكيد المرور "</string>
+    <string name="misMatchPassword">كلمة المرور غير مطابقة تأكيد كلمة المرور</string>
+
     <string name="restaurant_login">
 <font fgcolor="#4a4a48">هل انت مطعم / مقهي ؟ </font>
 <font fgcolor="#f05f40"> سجل دخول</font>
@@ -51,6 +54,9 @@
     <string name="continue_">متابعة</string>
 
     <string name="reload">يرجي أعاده التحميل</string>
+    <string name="relog">يرجي أعاده تسجيل الدخول</string>
+    <string name="re_regiter">يرجي أعاده أنشاء الحساب</string>
+    <string name="re_activate">يرجي أعاده تفعيل الحساب</string>
     <string name="internetError">لا يوجد اتصال إنترنت ..</string>
     <string name="badInternet">اتصال انترنت سيئ ..</string>
     <string name="invalidToken">أنتهت جلستك , يرجي أعادة تسجيل الدخول ..</string>
@@ -74,4 +80,6 @@
     <string name="message_address_req">يرجي أدخال عنوان الرسالة</string>
     <string name="message_content_req">يرجي محتوي الرسالة</string>
     <string name="comment">اكتب تعليقك</string>
+    <string name="fullNameReq">يرجي أدخال الأسم بالكامل</string>
+    <string name="emailReq">يرجي أدخال البريد الألكتروني</string>
 </resources>
