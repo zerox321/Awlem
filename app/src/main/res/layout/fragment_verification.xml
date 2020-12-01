@@ -61,7 +61,6 @@
             android:textColor="@color/primary"
             android:textSize="@dimen/HeaderFont"
             android:textStyle="bold"
-            android:visibility="@{viewModel.isLoading()? View.INVISIBLE:View.VISIBLE}"
             app:cursorColor="@color/primary"
             app:cursorWidth="2dp"
             app:hideLineWhenFilled="false"

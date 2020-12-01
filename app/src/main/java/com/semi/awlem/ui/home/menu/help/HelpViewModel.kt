@@ -24,7 +24,6 @@ import kotlinx.coroutines.launch
 class HelpViewModel @ViewModelInject constructor(
     private val repository: HelpRepository
 ) : BaseViewModel(), FaqsAdapter.ClickListener {
-    val isNoTUser = true
     val faqsAdapter = FaqsAdapter(this)
     val messageAddress = MutableLiveData<String>("")
     val content = MutableLiveData<String>("")
@@ -62,11 +61,13 @@ class HelpViewModel @ViewModelInject constructor(
         val messageAddressValue = messageAddress.value ?: ""
         val contentValue = content.value ?: ""
         when {
-            isNoTUser -> activity?.showLoginGuestDialog(isCancelable = true, onLoginClick = {
-                val activityClass = SplashActivity::class.java as Class<*>
-                val isGuest = true
-                activity.loadActivity(newActivityClass = activityClass, isGuest = isGuest)
-            })
+            repository.isNotUser() -> activity?.showLoginGuestDialog(
+                isCancelable = true,
+                onLoginClick = {
+                    val activityClass = SplashActivity::class.java as Class<*>
+                    val isGuest = true
+                    activity.loadActivity(newActivityClass = activityClass, isGuest = isGuest)
+                })
             isInputEmpty(messageAddressValue) -> showErrorSnackBar(
                 activity = activity,
                 editText = phoneTextInput,

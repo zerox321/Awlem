@@ -6,6 +6,8 @@ import com.semi.home.home.HomeClient
 import com.semi.home.home.HomeService
 import com.semi.home.menu.faq.FaqClient
 import com.semi.home.menu.faq.FaqService
+import com.semi.home.menu.profile.ProfileClient
+import com.semi.home.menu.profile.ProfileService
 import com.semi.home.menu.rate.RateClient
 import com.semi.home.menu.rate.RateService
 import com.semi.home.menu.staticPage.StaticPageClient
@@ -168,6 +170,18 @@ object NetworkModule {
     @Singleton
     fun provideRateClient(service: RateService): RateClient {
         return RateClient(service)
+    }
+
+    @Provides
+    @Singleton
+    fun provideProfileService(retrofit: Retrofit): ProfileService {
+        return retrofit.create(ProfileService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideProfileClient(service: ProfileService): ProfileClient {
+        return ProfileClient(service)
     }
 
 

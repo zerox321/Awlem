@@ -16,4 +16,6 @@ object EndPoint {
     const val reSendCodeConstant = "reSendCode"
     const val restorantsHasOffersConstant = "restorantsHasOffersApp"
     const val ratingAppConstant = "ratingApp"
+    const val updateUserPhotoConstant = "updateUserPhoto"
+
 }

@@ -61,7 +61,7 @@ class RateViewModel @ViewModelInject constructor(
                         onLoading = { loading: Boolean -> _isLoading.value = loading },
                         onSuccess = {
                             activity?.customSnackBar(
-                                "errorMessageId ?: ",
+                                R.string.rate_done,
                                 R.string.thanks,
                                 R.drawable.ic_save_done,
                             ) { onBack(v) }
