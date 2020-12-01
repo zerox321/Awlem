@@ -50,9 +50,11 @@ object RepositoryModule {
     @Singleton
     fun provideHelpRepository(
         client: FaqClient,
-        faqController: FaqController
+        faqController: FaqController,
+        pref: Pref
+
     ): HelpRepository {
-        return HelpRepository(client, faqController)
+        return HelpRepository(client, faqController, pref)
     }
 
     @Provides

@@ -7,6 +7,8 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import com.semi.awlem.base.BaseViewModel
 import com.semi.awlem.ui.home.menu.help.HelpRepository
+import com.semi.awlem.ui.splash.SplashActivity
+import com.semi.awlem.utility.ActivitiesLauncher.loadActivity
 import com.semi.awlem.utility.ContextConverter.getActivity
 import com.semi.awlem.utility.SnackBar.customSnackBar
 import com.semi.entity.database.faqController.FaqEntity
@@ -28,23 +30,29 @@ class CommonViewModel @ViewModelInject constructor(
     }
 
     private fun rateCommon(v: View, helpfull: String) {
-        viewModelScope.launch {
-            repository.rateFqaTaskRepo(
-                faq_id = faq?.id.toString(),
-                helpfull = helpfull,
-                onLoading = { loading: Boolean -> _isLoading.value = loading },
-                onFinish = { errorMessageId: Int, errorContent, icon: Int ->
-                    val activity = v.context?.getActivity()
-                    activity?.customSnackBar(
-                        errorMessageId,
-                        errorContent,
-                        icon,
-                    ) {}
+        val activity = v.context?.getActivity()
 
-                }
+        if (repository.isNotUser()) {
+            val activityClass = SplashActivity::class.java as Class<*>
+            val isGuest = true
+            activity?.loadActivity(newActivityClass = activityClass, isGuest = isGuest)
+        } else
+            viewModelScope.launch {
+                repository.rateFqaTaskRepo(
+                    faq_id = faq?.id.toString(),
+                    helpfull = helpfull,
+                    onLoading = { loading: Boolean -> _isLoading.value = loading },
+                    onFinish = { errorMessageId: Int, errorContent, icon: Int ->
+                        activity?.customSnackBar(
+                            errorMessageId,
+                            errorContent,
+                            icon,
+                        ) {}
 
-            )
-        }
+                    }
+
+                )
+            }
     }
 
 }

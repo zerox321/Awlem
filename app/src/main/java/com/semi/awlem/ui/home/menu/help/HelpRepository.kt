@@ -4,6 +4,7 @@ import com.semi.awlem.R
 import com.semi.awlem.base.BaseRepository
 import com.semi.awlem.utility.handleThrowable
 import com.semi.entity.database.faqController.FaqController
+import com.semi.entity.sharedPref.Pref
 import com.semi.home.menu.faq.FaqClient
 import timber.log.Timber
 import javax.inject.Inject
@@ -11,8 +12,11 @@ import javax.inject.Inject
 
 class HelpRepository @Inject constructor(
     private val client: FaqClient,
-    private val faqController: FaqController
+    private val faqController: FaqController,
+    private val pref: Pref
+
 ) : BaseRepository() {
+    fun isNotUser() = pref.getUser() == null
 
     fun getFaqLiveData() = faqController.getDao().getList()
 
