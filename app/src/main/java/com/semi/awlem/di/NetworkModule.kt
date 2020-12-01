@@ -1,6 +1,7 @@
 package com.semi.awlem.di
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.semi.entity.sharedPref.Pref
 import com.semi.home.home.HomeClient
 import com.semi.home.home.HomeService
 import com.semi.home.menu.faq.FaqClient
@@ -35,9 +36,11 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(): OkHttpClient {
+    fun provideOkHttpClient(
+        pref: Pref
+    ): OkHttpClient {
         return OkHttpClient.Builder()
-            .addInterceptor(RequestInterceptor())
+            .addInterceptor(RequestInterceptor(pref))
             .connectTimeout(EndPoint.timeOut, TimeUnit.SECONDS)
             .readTimeout(EndPoint.timeOut, TimeUnit.SECONDS)
             .writeTimeout(EndPoint.timeOut, TimeUnit.SECONDS)
