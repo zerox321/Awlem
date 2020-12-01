@@ -6,6 +6,8 @@ import com.semi.home.home.HomeClient
 import com.semi.home.home.HomeService
 import com.semi.home.menu.faq.FaqClient
 import com.semi.home.menu.faq.FaqService
+import com.semi.home.menu.rate.RateClient
+import com.semi.home.menu.rate.RateService
 import com.semi.home.menu.staticPage.StaticPageClient
 import com.semi.home.menu.staticPage.StaticPageService
 import com.semi.home.offer.OfferClient
@@ -154,6 +156,18 @@ object NetworkModule {
     @Singleton
     fun provideOfferClient(service: OfferService): OfferClient {
         return OfferClient(service)
+    }
+
+    @Provides
+    @Singleton
+    fun provideRateService(retrofit: Retrofit): RateService {
+        return retrofit.create(RateService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideRateClient(service: RateService): RateClient {
+        return RateClient(service)
     }
 
 

@@ -3,11 +3,14 @@ package com.semi.awlem.ui.home.home
 import android.view.View
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.viewModelScope
+import com.semi.awlem.R
 import com.semi.awlem.base.BaseViewModel
 import com.semi.awlem.ui.home.home.adapter.CategoryAdapter
 import com.semi.awlem.ui.home.home.adapter.SuggestProductsAdapter
 import com.semi.awlem.ui.home.home.adapter.SuggestRestaurantAdapter
 import com.semi.awlem.utility.ContextConverter.getActivity
+import com.semi.awlem.utility.NavigationUtil.findNavigationController
+import com.semi.awlem.utility.NavigationUtil.navigateTo
 import com.semi.awlem.utility.SnackBar.customSnackBar
 import com.semi.entity.database.categoryController.CategoryEntity
 import com.semi.entity.response.home.SuggestedProducts
@@ -21,6 +24,13 @@ class HomeViewModel @ViewModelInject constructor(private val repository: HomeRep
     val categoryAdapter = CategoryAdapter(this)
     val suggestRestaurantAdapter = SuggestRestaurantAdapter(this)
     val suggestProductsAdapter = SuggestProductsAdapter(this)
+    val categoriesLiveData = repository.getCategoriesLiveData()
+    fun onSearchClick(v: View) {
+        v.findNavigationController().navigateTo(
+            id = R.id.action_HomeFragment_to_SearchFragment
+        )
+
+    }
 
     init {
         getTypes(null)
@@ -28,7 +38,6 @@ class HomeViewModel @ViewModelInject constructor(private val repository: HomeRep
         suggestedProducts(null)
     }
 
-    val categoriesLiveData = repository.getCategoriesLiveData()
     fun getTypes(v: View?) {
         viewModelScope.async {
             repository.getTypesTaskRepo(onLoading = {},

@@ -15,7 +15,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="300dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -29,14 +29,14 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/productName"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/key_linesV"
+            android:gravity="start"
             android:text="@{SuggestedProducts.product.name}"
             android:textColor="@color/primary"
             android:textSize="@dimen/secondFont"
             app:layout_constraintBottom_toBottomOf="@+id/iconIv"
-            app:layout_constraintEnd_toStartOf="@+id/big_icon_iv"
             app:layout_constraintStart_toEndOf="@+id/iconIv"
             app:layout_constraintTop_toTopOf="@+id/iconIv"
             tools:text="SuggestedProducts" />
@@ -44,7 +44,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
             style="@style/card_view_padding_style"
-            android:layout_width="0dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -63,6 +63,7 @@
                     android:textColor="@color/grey"
                     android:textSize="@dimen/secondFont"
                     android:textStyle="bold"
+                    android:gravity="start"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="name" />
@@ -78,6 +79,8 @@
                     android:text="@{SuggestedProducts.description}"
                     android:textColor="@color/grey"
                     android:textSize="@dimen/secondFont"
+                    android:gravity="start"
+
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/typeName"
@@ -91,6 +94,8 @@
                     android:text="@{SuggestedProducts.time}"
                     android:textColor="@color/primary"
                     android:textSize="@dimen/secondFont"
+                    android:gravity="start"
+
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/addToCartTV"
                     app:layout_constraintStart_toStartOf="parent"
@@ -108,7 +113,6 @@
                     android:text="@string/addToCart"
                     android:textColor="@color/secondary"
                     android:textSize="@dimen/secondFont"
-
                     app:drawableStartCompat="@drawable/ic_mask_group_14"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

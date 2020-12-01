@@ -20,7 +20,7 @@ data class OfferResponseData(
     @Json(name = "id") val id: Int?,
     @Json(name = "name") val name: String?,
     @Json(name = "photo") val photo: String?,
-    @Json(name = "rate") val rate: Int?
+    @Json(name = "rate") val rate: Float?
 )
 
 @Keep

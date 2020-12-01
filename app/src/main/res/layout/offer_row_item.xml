@@ -17,7 +17,8 @@
     <androidx.cardview.widget.CardView
         style="@style/card_view_padding_style"
         android:layout_width="match_parent"
-        android:layout_height="160dp">
+        android:layout_height="160dp"
+        android:onClick="@{(v)->ClickListener.onRowClick(v,Offer)}">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iconIv"
@@ -41,5 +42,18 @@
             android:textSize="@dimen/secondFont"
             android:textStyle="bold"
             tools:text="SuggestedRestaurants" />
+
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/key_lines"
+            android:rating="@{Float.valueOf(Offer.rate)}"
+            android:theme="@style/goldRatingBar"
+
+            />
     </androidx.cardview.widget.CardView>
 </layout>

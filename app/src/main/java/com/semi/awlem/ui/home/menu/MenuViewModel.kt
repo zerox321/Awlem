@@ -42,14 +42,14 @@ class MenuViewModel : BaseViewModel() {
 
     fun helpClick(v: View) {
         v.findNavigationController().navigateTo(
-            id = R.id.action_navigation_more_to_HelpFragment,
+            id = R.id.action_navigation_more_to_HelpFragment
         )
 
     }
 
     fun rateClick(v: View) {
         v.findNavigationController().navigateTo(
-            id = R.id.action_navigation_more_to_RateFragment,
+            id = R.id.action_navigation_more_to_RateFragment
         )
 
     }

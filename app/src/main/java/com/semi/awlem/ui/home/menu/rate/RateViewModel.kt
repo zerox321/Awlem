@@ -18,7 +18,8 @@ import com.semi.awlem.utility.showErrorSnackBar
 import kotlinx.coroutines.launch
 
 class RateViewModel : BaseViewModel() {
-    val isNoTUser = true
+
+    private val isNoTUser = false
 
     val content = MutableLiveData<String>("")
     fun sendClick(
