@@ -17,6 +17,7 @@ import kotlinx.coroutines.async
 class HomeViewModel @ViewModelInject constructor(private val repository: HomeRepository) :
     BaseViewModel(), CategoryAdapter.ClickListener, SuggestRestaurantAdapter.ClickListener,
     SuggestProductsAdapter.ClickListener {
+    val name = "مرحبا بك " + repository.pref.getUser()?.name
     val categoryAdapter = CategoryAdapter(this)
     val suggestRestaurantAdapter = SuggestRestaurantAdapter(this)
     val suggestProductsAdapter = SuggestProductsAdapter(this)

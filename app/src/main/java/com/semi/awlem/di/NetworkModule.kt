@@ -8,6 +8,8 @@ import com.semi.home.menu.faq.FaqClient
 import com.semi.home.menu.faq.FaqService
 import com.semi.home.menu.staticPage.StaticPageClient
 import com.semi.home.menu.staticPage.StaticPageService
+import com.semi.home.offer.OfferClient
+import com.semi.home.offer.OfferService
 import com.semi.network.BuildConfig
 import com.semi.network.EndPoint
 import com.semi.network.RequestInterceptor
@@ -139,6 +141,19 @@ object NetworkModule {
     @Singleton
     fun provideActivateClient(service: ActivateService): ActivateClient {
         return ActivateClient(service)
+    }
+
+
+    @Provides
+    @Singleton
+    fun provideOfferService(retrofit: Retrofit): OfferService {
+        return retrofit.create(OfferService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideOfferClient(service: OfferService): OfferClient {
+        return OfferClient(service)
     }
 
 

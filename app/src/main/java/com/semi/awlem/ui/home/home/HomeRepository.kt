@@ -6,6 +6,7 @@ import com.semi.awlem.utility.handleThrowable
 import com.semi.entity.database.categoryController.CategoryController
 import com.semi.entity.response.home.SuggestedProducts
 import com.semi.entity.response.home.SuggestedRestaurantsResponse
+import com.semi.entity.sharedPref.Pref
 import com.semi.home.home.HomeClient
 import timber.log.Timber
 import javax.inject.Inject
@@ -13,7 +14,8 @@ import javax.inject.Inject
 
 class HomeRepository @Inject constructor(
     private val client: HomeClient,
-    private val categoryController: CategoryController
+    private val categoryController: CategoryController,
+    val pref: Pref
 ) : BaseRepository() {
 
     fun getCategoriesLiveData() = categoryController.getDao().getList()

@@ -11,7 +11,9 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.RequestOptions
 import com.semi.awlem.R
+import com.semi.network.BuildConfig.resizedUrl
 import timber.log.Timber
 import java.util.*
 
@@ -32,8 +34,7 @@ fun bindSlideView(view: View, isSlideUp: Boolean) {
 
 @BindingAdapter("bindingPostUrl")
 fun bindingPostUrl(imageView: ImageView, path: String?) {
-    val imageUrl = "http://192.168.1.4/olum/public/images/type/2/photo/Group%208523.png"
-//    val imageUrl = "$resizedUrl$path"
+    val imageUrl = "$resizedUrl$path"
     Timber.e("bindingPostUrl   $imageUrl")
     Glide.with(imageView.context)
         .load(imageUrl)
@@ -46,6 +47,20 @@ fun bindingPostUrl(imageView: ImageView, path: String?) {
         .into(imageView)
 }
 
+@BindingAdapter("bindingCirclePostUrl")
+fun bindingCirclePostUrl(imageView: ImageView, path: String?) {
+    if (path != null)
+        Glide.with(imageView.context)
+            .load("$resizedUrl$path")
+            .diskCacheStrategy(DiskCacheStrategy.DATA)
+            .apply(
+                RequestOptions.placeholderOf(R.drawable.ic_profile_placeholder)
+                    .error(R.drawable.ic_profile_placeholder)
+            )
+            .apply(RequestOptions().circleCrop())
+            .transition(DrawableTransitionOptions.withCrossFade())
+            .into(imageView)
+}
 
 @BindingAdapter("loadHtml")
 fun loadHtml(browser: WebView, text: String?) {

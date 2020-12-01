@@ -14,4 +14,5 @@ object EndPoint {
     const val registerConstant = "register"
     const val activeAccountConstant = "activeAccount"
     const val reSendCodeConstant = "reSendCode"
+    const val restorantsHasOffersConstant = "restorantsHasOffersApp"
 }

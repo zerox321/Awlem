@@ -31,4 +31,11 @@ class OffersFragment : DataBindingFragment() {
         }.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.pagedList.observe(this.viewLifecycleOwner, {
+            viewModel.adapter.submitList(it)
+        })
+
+    }
 }

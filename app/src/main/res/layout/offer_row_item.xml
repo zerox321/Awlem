@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="Offer"
+            type="com.semi.entity.response.offer.OfferResponseData" />
+
+        <variable
+            name="ClickListener"
+            type="com.semi.awlem.ui.home.offers.pagedList.OffersAdapter.ClickListener" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        style="@style/card_view_padding_style"
+        android:layout_width="match_parent"
+        android:layout_height="160dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iconIv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:bindingPostUrl="@{Offer.photo}" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_margin="@dimen/key_lines"
+            android:shadowColor="@color/grey"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:text="@{Offer.name}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/secondFont"
+            android:textStyle="bold"
+            tools:text="SuggestedRestaurants" />
+    </androidx.cardview.widget.CardView>
+</layout>

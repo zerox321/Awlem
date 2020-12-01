@@ -3,6 +3,7 @@ package com.semi.awlem.di
 import com.semi.awlem.ui.home.home.HomeRepository
 import com.semi.awlem.ui.home.menu.help.HelpRepository
 import com.semi.awlem.ui.home.menu.staticPage.StaticRepository
+import com.semi.awlem.ui.home.offers.OffersRepository
 import com.semi.awlem.ui.splash.login.LoginRepository
 import com.semi.awlem.ui.splash.register.RegisterRepository
 import com.semi.awlem.ui.splash.verification.VerificationRepository
@@ -12,6 +13,7 @@ import com.semi.entity.sharedPref.Pref
 import com.semi.home.home.HomeClient
 import com.semi.home.menu.faq.FaqClient
 import com.semi.home.menu.staticPage.StaticPageClient
+import com.semi.home.offer.OfferClient
 import com.semi.splash.activate.ActivateClient
 import com.semi.splash.login.LoginClient
 import com.semi.splash.register.RegisterClient
@@ -31,9 +33,11 @@ object RepositoryModule {
     @Singleton
     fun provideHomeRepository(
         client: HomeClient,
-        categoryController: CategoryController
+        categoryController: CategoryController,
+        pref: Pref
+
     ): HomeRepository {
-        return HomeRepository(client, categoryController)
+        return HomeRepository(client, categoryController, pref)
     }
 
 
@@ -83,6 +87,15 @@ object RepositoryModule {
         pref: Pref
     ): VerificationRepository {
         return VerificationRepository(client, pref)
+    }
+
+    @Provides
+    @Singleton
+    fun provideOffersRepository(
+        client: OfferClient,
+        pref: Pref
+    ): OffersRepository {
+        return OffersRepository(client, pref)
     }
 
 

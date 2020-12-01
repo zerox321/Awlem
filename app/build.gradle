@@ -136,6 +136,7 @@ dependencies {
 
     api 'de.hdodenhof:circleimageview:3.1.0'
 
+    implementation "android.arch.paging:runtime:2.1.1"
 
 }
 apply from: '../spotless.gradle'
