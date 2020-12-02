@@ -24,16 +24,16 @@
 
     <string name="restaurant_login">
 <font fgcolor="#4a4a48">هل انت مطعم / مقهي ؟ </font>
-<font fgcolor="#f05f40"> سجل دخول</font>
+<font fgcolor="#d80200"> سجل دخول</font>
 </string>
 
     <string name="create_account">
 <font fgcolor="#4a4a48">ليس لديك حساب ؟ </font>
-<font fgcolor="#f05f40"> قم بإنشاء حساب</font>
+<font fgcolor="#d80200"> قم بإنشاء حساب</font>
 </string>
     <string name="have_account">
 <font fgcolor="#4a4a48"> لديك حساب ؟ </font>
-<font fgcolor="#f05f40"> تسجيل الدخول</font>
+<font fgcolor="#d80200"> تسجيل الدخول</font>
 </string>
     <string name="fullName">الاسم بالكامل</string>
     <string name="email">البريد الالكتروني</string>
