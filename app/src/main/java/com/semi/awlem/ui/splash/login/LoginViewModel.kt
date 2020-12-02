@@ -1,5 +1,7 @@
 package com.semi.awlem.ui.splash.login
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.hilt.lifecycle.ViewModelInject
@@ -24,6 +26,13 @@ class LoginViewModel @ViewModelInject constructor(private val repository: LoginR
     BaseViewModel() {
     val phone = MutableLiveData<String>("")
     val password = MutableLiveData<String>("")
+
+    fun restaurantClick(v: View) {
+        val url = "http://www.google.com"
+        val i = Intent(Intent.ACTION_VIEW)
+        i.data = Uri.parse(url)
+        v.context.startActivity(i)
+    }
 
     fun registerClick(v: View) {
         v.findNavigationController().navigateTo(

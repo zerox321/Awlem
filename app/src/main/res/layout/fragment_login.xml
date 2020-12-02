@@ -138,6 +138,7 @@
                 android:background="?attr/selectableItemBackground"
                 android:padding="@dimen/key_linesV"
                 android:text="@string/restaurant_login"
+                android:onClick="@{viewModel::restaurantClick}"
                 android:textSize="@dimen/mainFont"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
