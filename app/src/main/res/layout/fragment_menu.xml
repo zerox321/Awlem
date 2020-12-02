@@ -29,11 +29,12 @@
                 android:layout_marginTop="@dimen/key_lines"
                 android:background="?attr/selectableItemBackground"
                 android:enabled="@{!viewModel.isLoading()}"
-                app:bindingCirclePostUrl="@{viewModel.userData.photo}"
                 android:onClick="@{viewModel::onProfileClick}"
+                app:bindingCirclePostUrl="@{viewModel.userData.photo}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_profile_placeholder" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/profileTv"
@@ -43,10 +44,23 @@
                 android:enabled="@{!viewModel.isLoading()}"
                 android:onClick="@{viewModel::onProfileClick}"
                 android:padding="@dimen/key_linesV"
-
                 android:text="تغيير الصورة الشخصية"
                 android:textColor="@color/primary"
                 android:textSize="@dimen/mainFont"
+                android:visibility="@{viewModel.isNotUser ? View.INVISIBLE : View.VISIBLE}"
+                app:layout_constraintEnd_toEndOf="@+id/profileIv"
+                app:layout_constraintStart_toStartOf="@+id/profileIv"
+                app:layout_constraintTop_toBottomOf="@+id/profileIv" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/reloginTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/key_linesV"
+                android:text="يرجي تسجيل الدخول"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/mainFont"
+                android:visibility="@{viewModel.isNotUser ? View.VISIBLE : View.INVISIBLE}"
                 app:layout_constraintEnd_toEndOf="@+id/profileIv"
                 app:layout_constraintStart_toStartOf="@+id/profileIv"
                 app:layout_constraintTop_toBottomOf="@+id/profileIv" />
@@ -69,6 +83,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/key_lines"
                 android:background="@drawable/grey_top_rounded_corners"
+
                 android:drawablePadding="@dimen/key_lines"
                 android:elevation="2dp"
                 android:enabled="@{!viewModel.isLoading()}"
@@ -78,6 +93,7 @@
                 android:textAlignment="viewStart"
                 android:textColor="@color/secondary"
                 android:textSize="@dimen/mainFont"
+                android:visibility="@{viewModel.isNotUser ? View.GONE : View.VISIBLE}"
                 app:drawableEndCompat="@drawable/ic_component_45_1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -89,7 +105,9 @@
                 android:layout_height="1dp"
                 android:layout_marginStart="@dimen/key_lines"
                 android:layout_marginEnd="@dimen/key_lines"
+
                 android:background="@drawable/line_divider"
+                android:visibility="@{viewModel.isNotUser ? View.GONE : View.VISIBLE}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/accountTv" />
@@ -104,13 +122,14 @@
                 android:drawablePadding="@dimen/key_lines"
                 android:elevation="2dp"
                 android:enabled="@{!viewModel.isLoading()}"
-
                 android:foreground="?android:attr/selectableItemBackground"
+
                 android:padding="@dimen/key_lines"
                 android:text="@string/orders"
                 android:textAlignment="viewStart"
                 android:textColor="@color/secondary"
                 android:textSize="@dimen/mainFont"
+                android:visibility="@{viewModel.isNotUser ? View.GONE : View.VISIBLE}"
                 app:drawableEndCompat="@drawable/ic_component_45_1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -296,6 +315,28 @@
                 android:textAlignment="viewStart"
                 android:textColor="@color/primary"
                 android:textSize="@dimen/mainFont"
+                android:visibility="@{viewModel.isNotUser ? View.GONE : View.VISIBLE}"
+                app:drawableEndCompat="@drawable/ic_mask_group_42"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rateTv" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/loginTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/key_lines"
+                android:background="@drawable/grey_rounded_corners"
+                android:drawablePadding="@dimen/key_lines"
+                android:elevation="2dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:onClick="@{viewModel::onLoginClick}"
+                android:padding="@dimen/key_lines"
+                android:text="@string/login"
+                android:textAlignment="viewStart"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/mainFont"
+                android:visibility="@{viewModel.isNotUser ? View.VISIBLE : View.GONE}"
                 app:drawableEndCompat="@drawable/ic_mask_group_42"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

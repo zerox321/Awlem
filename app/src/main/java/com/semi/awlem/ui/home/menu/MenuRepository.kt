@@ -16,6 +16,7 @@ class MenuRepository @Inject constructor(
 ) : BaseRepository() {
     fun isNotUser() = pref.getUser() == null
     fun getUser() = pref.getUser()
+    fun logout() = pref.clear()
 
 
     suspend fun updateUserPhotoTaskRepo(

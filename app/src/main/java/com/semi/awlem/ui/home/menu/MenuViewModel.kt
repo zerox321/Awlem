@@ -22,8 +22,10 @@ import java.io.File
 
 class MenuViewModel @ViewModelInject constructor(private val repository: MenuRepository) :
     BaseViewModel() {
+    val isNotUser = repository.isNotUser()
     val userData = MutableLiveData<LoginResponseData?>(repository.getUser())
     fun onProfileClick(v: View) {
+        if (isNotUser) return
         val activity = v.context.getActivity()
         activity?.showImageSelectorDialog(onSuccess = { file: File? ->
             file?.let { activity.uploadImage(it) }
@@ -53,10 +55,17 @@ class MenuViewModel @ViewModelInject constructor(private val repository: MenuRep
     fun onLogoutClick(v: View) {
         val activity = v.context.getActivity()
         activity?.showLogoutDialog(onLogoutClick = {
-
+            repository.logout()
             val splashActivity = SplashActivity::class.java as Class<*>
             activity.loadActivity(splashActivity)
         })
+
+    }
+
+    fun onLoginClick(v: View) {
+        val activity = v.context.getActivity()
+        val splashActivity = SplashActivity::class.java as Class<*>
+        activity?.loadActivity(splashActivity, isGuest = true)
 
     }
 

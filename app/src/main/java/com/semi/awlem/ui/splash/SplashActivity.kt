@@ -6,6 +6,7 @@ import androidx.navigation.findNavController
 import com.semi.awlem.R
 import com.semi.awlem.base.BaseActivity
 import com.semi.awlem.databinding.ActivitySplashBinding
+import com.semi.awlem.utility.NavigationUtil.navigateTo
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,10 +26,10 @@ class SplashActivity : BaseActivity() {
     } // fun of bind
 
     private fun isGuestNavigateToLogin(isGuest: Boolean) {
-//        if (isGuest)
-//            navController.navigateTo(
-//                id = R.id.action_SplashFragment_to_LoginFragment,
-//            )
+        if (isGuest)
+            navController.navigateTo(
+                id = R.id.action_SplashFragment_to_LoginFragment,
+            )
     }//Navigate Guest To Login Screen
 
     override fun onCreate(savedInstanceState: Bundle?) {
