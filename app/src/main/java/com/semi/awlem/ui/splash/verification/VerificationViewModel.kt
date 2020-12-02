@@ -4,13 +4,18 @@ import android.view.View
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.viewModelScope
 import com.chaos.view.PinView
 import com.semi.awlem.R
 import com.semi.awlem.base.BaseViewModel
+import com.semi.awlem.ui.home.HomeActivity
+import com.semi.awlem.utility.ActivitiesLauncher.loadActivity
 import com.semi.awlem.utility.ContextConverter.getActivity
 import com.semi.awlem.utility.KeyboardUtil.hideKeyboard
+import com.semi.awlem.utility.SnackBar.customSnackBar
 import com.semi.awlem.utility.isInputEmpty
 import com.semi.awlem.utility.showErrorSnackBar
+import kotlinx.coroutines.launch
 
 class VerificationViewModel @ViewModelInject constructor(
     private val repository: VerificationRepository,
@@ -36,23 +41,23 @@ class VerificationViewModel @ViewModelInject constructor(
 
             else -> {
                 v.hideKeyboard()
-//                viewModelScope.launch {
-//                    repository.activeAccountTaskRepo(
-//                        Authorization = token,
-//                        virification_code = code,
-//                        onLoading = { loading: Boolean -> _isLoading.value = loading },
-//                        onSuccess = {
-//                            activity?.loadActivity(HomeActivity::class.java as Class<*>)
-//                        },
-//                        onError = { messageTitle: String?, messageContent: Int, icon: Int ->
-//                            activity?.customSnackBar(
-//                                title = messageTitle ?: "",
-//                                message = messageContent,
-//                                iconId = icon,
-//                            ) {}
-//                        })
-//
-//                }
+                viewModelScope.launch {
+                    repository.activeAccountTaskRepo(
+                        Authorization = token,
+                        virification_code = code,
+                        onLoading = { loading: Boolean -> _isLoading.value = loading },
+                        onSuccess = {
+                            activity?.loadActivity(HomeActivity::class.java as Class<*>)
+                        },
+                        onError = { messageTitle: String?, messageContent: Int, icon: Int ->
+                            activity?.customSnackBar(
+                                title = messageTitle ?: "",
+                                message = messageContent,
+                                iconId = icon,
+                            ) {}
+                        })
+
+                }
             }
 
         }
@@ -60,19 +65,19 @@ class VerificationViewModel @ViewModelInject constructor(
 
     fun onResendClick(v: View) {
         val activity = v.context.getActivity()
-//        viewModelScope.launch {
-//            repository.reSendCodeTaskRepo(
-//                Authorization = token,
-//                onLoading = { loading: Boolean -> _isLoading.value = loading },
-//                onError = { messageTitle: String?, messageContent: Int, icon: Int ->
-//                    activity?.customSnackBar(
-//                        title = messageTitle ?: "",
-//                        message = messageContent,
-//                        iconId = icon,
-//                    ) {}
-//                })
-//
-//        }
+        viewModelScope.launch {
+            repository.reSendCodeTaskRepo(
+                Authorization = token,
+                onLoading = { loading: Boolean -> _isLoading.value = loading },
+                onError = { messageTitle: String?, messageContent: Int, icon: Int ->
+                    activity?.customSnackBar(
+                        title = messageTitle ?: "",
+                        message = messageContent,
+                        iconId = icon,
+                    ) {}
+                })
+
+        }
     }
 
 }

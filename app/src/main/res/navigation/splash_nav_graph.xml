@@ -57,7 +57,18 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_LoginFragment_to_ForgetFragment"
+            app:destination="@id/ForgetFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
+    <fragment
+        android:id="@+id/ForgetFragment"
+        android:name="com.semi.awlem.ui.splash.forget.ForgetFragment"
+        tools:layout="@layout/forget_fragment" />
     <fragment
         android:id="@+id/RegisterFragment"
         android:name="com.semi.awlem.ui.splash.register.RegisterFragment"

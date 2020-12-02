@@ -7,11 +7,15 @@ import android.view.View
 import android.view.animation.AnimationUtils
 import android.webkit.WebView
 import android.widget.ImageView
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
+import com.github.florent37.expansionpanel.ExpansionHeader
+import com.github.florent37.expansionpanel.ExpansionLayout
 import com.semi.awlem.R
 import com.semi.network.BuildConfig.resizedUrl
 import timber.log.Timber
@@ -73,4 +77,26 @@ fun loadHtml(browser: WebView, text: String?) {
         "UTF-8"
     )
     browser.setBackgroundColor(Color.TRANSPARENT)
+}
+
+@BindingAdapter("attachHeader", "attachTitleTv", "attachIndicator", requireAll = true)
+fun bindExpansionLayout(
+    expansionLayout: ExpansionLayout,
+    header: ExpansionHeader,
+    textView: TextView,
+    indicator: ImageView
+) {
+    val context = expansionLayout.context
+    expansionLayout.addListener { _, expanded ->
+        if (expanded) {
+            header.setBackgroundResource(R.drawable.rounded_color_primary_8)
+            textView.setTextColor(ContextCompat.getColor(context, R.color.white))
+            indicator.setImageResource(R.drawable.ic_expansion_header_indicator_white)
+        } else {
+            header.setBackgroundResource(R.drawable.rounded_grey_8)
+            textView.setTextColor(ContextCompat.getColor(context, R.color.secondary))
+            indicator.setImageResource(R.drawable.ic_expansion_header_indicator_grey)
+        }
+    }
+
 }

@@ -25,11 +25,15 @@ class LoginViewModel @ViewModelInject constructor(private val repository: LoginR
     val phone = MutableLiveData<String>("")
     val password = MutableLiveData<String>("")
 
-    fun registerClick(
-        v: View
-    ) {
+    fun registerClick(v: View) {
         v.findNavigationController().navigateTo(
             id = R.id.action_LoginFragment_to_RegisterFragment,
+        )
+    }
+
+    fun forgetClick(v: View) {
+        v.findNavigationController().navigateTo(
+            id = R.id.action_LoginFragment_to_ForgetFragment,
         )
     }
 

@@ -94,6 +94,7 @@
                 android:padding="@dimen/key_linesV"
                 android:text="@string/forgetPassword"
                 android:textColor="@color/secondary"
+                android:onClick="@{viewModel::forgetClick}"
                 android:textSize="@dimen/mainFont"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
