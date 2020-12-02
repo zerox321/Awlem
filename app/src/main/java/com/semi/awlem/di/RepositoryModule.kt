@@ -1,6 +1,7 @@
 package com.semi.awlem.di
 
 import com.semi.awlem.ui.home.home.HomeRepository
+import com.semi.awlem.ui.home.menu.MenuRepository
 import com.semi.awlem.ui.home.menu.help.HelpRepository
 import com.semi.awlem.ui.home.menu.rate.RateRepository
 import com.semi.awlem.ui.home.menu.staticPage.StaticRepository
@@ -13,6 +14,7 @@ import com.semi.entity.database.faqController.FaqController
 import com.semi.entity.sharedPref.Pref
 import com.semi.home.home.HomeClient
 import com.semi.home.menu.faq.FaqClient
+import com.semi.home.menu.profile.ProfileClient
 import com.semi.home.menu.rate.RateClient
 import com.semi.home.menu.staticPage.StaticPageClient
 import com.semi.home.offer.OfferClient
@@ -107,6 +109,15 @@ object RepositoryModule {
         pref: Pref
     ): RateRepository {
         return RateRepository(client, pref)
+    }
+
+    @Provides
+    @Singleton
+    fun provideMenuRepository(
+        client: ProfileClient,
+        pref: Pref
+    ): MenuRepository {
+        return MenuRepository(client, pref)
     }
 
 

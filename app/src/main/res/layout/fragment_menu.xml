@@ -28,19 +28,22 @@
                 android:layout_height="@dimen/profile"
                 android:layout_marginTop="@dimen/key_lines"
                 android:background="?attr/selectableItemBackground"
+                android:enabled="@{!viewModel.isLoading()}"
+                app:bindingCirclePostUrl="@{viewModel.userData.photo}"
                 android:onClick="@{viewModel::onProfileClick}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_profile_placeholder" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/profileTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
+                android:enabled="@{!viewModel.isLoading()}"
                 android:onClick="@{viewModel::onProfileClick}"
                 android:padding="@dimen/key_linesV"
+
                 android:text="تغيير الصورة الشخصية"
                 android:textColor="@color/primary"
                 android:textSize="@dimen/mainFont"
@@ -48,6 +51,17 @@
                 app:layout_constraintStart_toStartOf="@+id/profileIv"
                 app:layout_constraintTop_toBottomOf="@+id/profileIv" />
 
+            <androidx.core.widget.ContentLoadingProgressBar
+                style="@style/Widget.AppCompat.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleX="0.6"
+                android:scaleY="0.6"
+                android:theme="@style/CircularProgress"
+                android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.INVISIBLE}"
+                app:layout_constraintBottom_toBottomOf="@+id/profileTv"
+                app:layout_constraintEnd_toStartOf="@+id/profileTv"
+                app:layout_constraintTop_toTopOf="@+id/profileTv" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/accountTv"
@@ -57,13 +71,13 @@
                 android:background="@drawable/grey_top_rounded_corners"
                 android:drawablePadding="@dimen/key_lines"
                 android:elevation="2dp"
+                android:enabled="@{!viewModel.isLoading()}"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:padding="@dimen/key_lines"
                 android:text="@string/profile"
                 android:textAlignment="viewStart"
                 android:textColor="@color/secondary"
                 android:textSize="@dimen/mainFont"
-
                 app:drawableEndCompat="@drawable/ic_component_45_1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -89,6 +103,8 @@
                 android:background="@drawable/grey_bottom_rounded_corners"
                 android:drawablePadding="@dimen/key_lines"
                 android:elevation="2dp"
+                android:enabled="@{!viewModel.isLoading()}"
+
                 android:foreground="?android:attr/selectableItemBackground"
                 android:padding="@dimen/key_lines"
                 android:text="@string/orders"
@@ -107,8 +123,10 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/key_lines"
                 android:background="@drawable/grey_top_rounded_corners"
+
                 android:drawablePadding="@dimen/key_lines"
                 android:elevation="2dp"
+                android:enabled="@{!viewModel.isLoading()}"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:onClick="@{viewModel::helpClick}"
                 android:padding="@dimen/key_lines"
@@ -140,8 +158,10 @@
                 android:layout_marginStart="@dimen/key_lines"
                 android:layout_marginEnd="@dimen/key_lines"
                 android:background="@drawable/grey_no_corners"
+
                 android:drawablePadding="@dimen/key_lines"
                 android:elevation="2dp"
+                android:enabled="@{!viewModel.isLoading()}"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:onClick='@{(v)->viewModel.staticClick(v,@string/privacy,1)}'
                 android:padding="@dimen/key_lines"
@@ -173,8 +193,10 @@
                 android:layout_marginStart="@dimen/key_lines"
                 android:layout_marginEnd="@dimen/key_lines"
                 android:background="@drawable/grey_no_corners"
+
                 android:drawablePadding="@dimen/key_lines"
                 android:elevation="2dp"
+                android:enabled="@{!viewModel.isLoading()}"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:onClick='@{(v)->viewModel.staticClick(v,@string/terms,1)}'
                 android:padding="@dimen/key_lines"
@@ -208,6 +230,8 @@
                 android:background="@drawable/grey_no_corners"
                 android:drawablePadding="@dimen/key_lines"
                 android:elevation="2dp"
+
+                android:enabled="@{!viewModel.isLoading()}"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:onClick='@{(v)->viewModel.staticClick(v,@string/about,1)}'
                 android:padding="@dimen/key_lines"
@@ -241,6 +265,8 @@
                 android:background="@drawable/grey_bottom_rounded_corners"
                 android:drawablePadding="@dimen/key_lines"
                 android:elevation="2dp"
+
+                android:enabled="@{!viewModel.isLoading()}"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:onClick="@{viewModel::rateClick}"
                 android:padding="@dimen/key_lines"
@@ -262,13 +288,13 @@
                 android:background="@drawable/grey_rounded_corners"
                 android:drawablePadding="@dimen/key_lines"
                 android:elevation="2dp"
+                android:enabled="@{!viewModel.isLoading()}"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:onClick="@{viewModel::onLogoutClick}"
                 android:padding="@dimen/key_lines"
                 android:text="@string/menu_logout"
                 android:textAlignment="viewStart"
                 android:textColor="@color/primary"
-
                 android:textSize="@dimen/mainFont"
                 app:drawableEndCompat="@drawable/ic_mask_group_42"
                 app:layout_constraintEnd_toEndOf="parent"

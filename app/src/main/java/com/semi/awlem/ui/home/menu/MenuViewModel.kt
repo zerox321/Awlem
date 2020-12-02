@@ -1,7 +1,11 @@
 package com.semi.awlem.ui.home.menu
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.View
+import androidx.hilt.lifecycle.ViewModelInject
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.semi.awlem.R
 import com.semi.awlem.base.BaseViewModel
 import com.semi.awlem.ui.splash.SplashActivity
@@ -9,14 +13,40 @@ import com.semi.awlem.utility.ActivitiesLauncher.loadActivity
 import com.semi.awlem.utility.ContextConverter.getActivity
 import com.semi.awlem.utility.NavigationUtil.findNavigationController
 import com.semi.awlem.utility.NavigationUtil.navigateTo
+import com.semi.awlem.utility.SnackBar.customSnackBar
 import com.semi.awlem.utility.dialog.ImageSelectorUtil.showImageSelectorDialog
 import com.semi.awlem.utility.dialog.LogoutDialog.showLogoutDialog
+import com.semi.entity.response.splash.LoginResponseData
+import kotlinx.coroutines.launch
 import java.io.File
 
-class MenuViewModel : BaseViewModel() {
+class MenuViewModel @ViewModelInject constructor(private val repository: MenuRepository) :
+    BaseViewModel() {
+    val userData = MutableLiveData<LoginResponseData?>(repository.getUser())
     fun onProfileClick(v: View) {
         val activity = v.context.getActivity()
-        activity?.showImageSelectorDialog(onSuccess = { file: File? -> })
+        activity?.showImageSelectorDialog(onSuccess = { file: File? ->
+            file?.let { activity.uploadImage(it) }
+        })
+
+    }
+
+    private fun Activity.uploadImage(file: File) {
+        viewModelScope.launch {
+            repository.updateUserPhotoTaskRepo(
+                photoFile = file,
+                onLoading = { loading -> _isLoading.value = loading },
+                onSuccess = { user ->
+                    userData.value = user
+                },
+                onError = { messageTitle: String?, messageContent: Int, icon: Int ->
+                    customSnackBar(
+                        title = messageTitle ?: "",
+                        message = messageContent,
+                        iconId = icon,
+                    ) {}
+                })
+        }
 
     }
 
