@@ -127,7 +127,7 @@
             android:layout_height="@dimen/profile"
             android:layout_margin="@dimen/key_lines"
             android:elevation="@dimen/key_linesV"
-            app:bindingPostUrl="@{SuggestedProducts.product.photo}"
+            app:bindingCirclePostUrl="@{SuggestedProducts.product.photo}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

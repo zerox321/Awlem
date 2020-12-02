@@ -21,6 +21,7 @@ class HomeViewModel @ViewModelInject constructor(private val repository: HomeRep
     BaseViewModel(), CategoryAdapter.ClickListener, SuggestRestaurantAdapter.ClickListener,
     SuggestProductsAdapter.ClickListener {
     val name = "مرحبا بك " + repository.pref.getUser()?.name
+    val photo = repository.pref.getUser()?.photo
     val categoryAdapter = CategoryAdapter(this)
     val suggestRestaurantAdapter = SuggestRestaurantAdapter(this)
     val suggestProductsAdapter = SuggestProductsAdapter(this)

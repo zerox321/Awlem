@@ -16,6 +16,7 @@ class OffersViewModel @ViewModelInject constructor(private val repository: Offer
     BaseViewModel(), OffersAdapter.ClickListener {
 
     val name = "مرحبا بك " + repository.pref.getUser()?.name
+    val photo = repository.pref.getUser()?.photo
 
     val adapter = OffersAdapter(this)
 

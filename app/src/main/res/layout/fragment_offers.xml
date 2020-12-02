@@ -39,7 +39,7 @@
             android:layout_width="@dimen/category_icon"
             android:layout_height="@dimen/category_icon"
             android:layout_margin="@dimen/key_linesV"
-            app:bindingCirclePostUrl="@{viewModel.name}"
+            app:bindingCirclePostUrl="@{viewModel.photo}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
